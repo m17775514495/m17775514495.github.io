@@ -371,43 +371,9 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="为了解决微服务过多的问题"><a href="#为了解决微服务过多的问题" class="headerlink" title="为了解决微服务过多的问题"></a>为了解决微服务过多的问题</h2><p>监控每一个微服务的运行状态和针对微服务进行优化</p>
-<h2 id="监控工具-Hystrix-dashboard-Turbine"><a href="#监控工具-Hystrix-dashboard-Turbine" class="headerlink" title="监控工具(Hystrix-dashboard Turbine)"></a>监控工具(Hystrix-dashboard Turbine)</h2><p>Hystrix-dashboard(单机监控工具) 是一款针对Hystrix进行实时监控额工具，可以看到个Hystrix Command的请求响应时间，请求成功率等数据，但是只能看到单个应用内的服务信息，所以我们用Turbine(集群监控工具)来进行汇总多个服务的数据并显示到Hystrix Dashboard上。</p>
-<h2 id="单机监控-不做集群时"><a href="#单机监控-不做集群时" class="headerlink" title="单机监控(不做集群时)"></a>单机监控(不做集群时)</h2><p>1.创建项目</p>
-<p>woniu468cloud-provider-hystrix-dashboard-9999</p>
-<p>2.导入依赖（相比于8002多一个监控组件）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 依赖公共模块 --&gt;</span><br><span class="line"> 	&lt;dependency&gt;</span><br><span class="line"> 	    &lt;groupId&gt;com.woniuxy&lt;/groupId&gt;</span><br><span class="line"> 		&lt;artifactId&gt;woniu468cloud-common&lt;/artifactId&gt;</span><br><span class="line"> 		&lt;version&gt;$&#123;project.version&#125;&lt;/version&gt;</span><br><span class="line"> 	&lt;/dependency&gt;</span><br><span class="line"> 	</span><br><span class="line"> 	&lt;dependency&gt;</span><br><span class="line"> 		&lt;groupId&gt;junit&lt;/groupId&gt;</span><br><span class="line"> 		&lt;artifactId&gt;junit&lt;/artifactId&gt;</span><br><span class="line"> 	&lt;/dependency&gt;</span><br><span class="line"> 	</span><br><span class="line"> 	&lt;dependency&gt;</span><br><span class="line"> 		&lt;groupId&gt;mysql&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;mysql-connector-java&lt;/artifactId&gt;</span><br><span class="line"> 	&lt;/dependency&gt;</span><br><span class="line"> 	</span><br><span class="line"> 	 &lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;com.alibaba&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;druid-spring-boot-starter&lt;/artifactId&gt;</span><br><span class="line">    </span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line">    </span><br><span class="line">     &lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;org.mybatis.spring.boot&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;mybatis-spring-boot-starter&lt;/artifactId&gt;</span><br><span class="line">        </span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line">      &lt;dependency&gt;</span><br><span class="line">      	&lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">      	&lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;</span><br><span class="line">      &lt;/dependency&gt;</span><br><span class="line">      &lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;spring-boot-starter-tomcat&lt;/artifactId&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line">     &lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;spring-boot-starter-test&lt;/artifactId&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line">         &lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;spring-boot-devtools&lt;/artifactId&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line">    </span><br><span class="line">    &lt;!-- 将微服务provider注册进eureka 作为客户端--&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">    	&lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;</span><br><span class="line">    	&lt;artifactId&gt;spring-cloud-netflix-eureka-client&lt;/artifactId&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line">    </span><br><span class="line">    &lt;!-- actuator监控信息 --&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">    	&lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">    	&lt;artifactId&gt;spring-boot-starter-actuator&lt;/artifactId&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line">    </span><br><span class="line">    &lt;!-- 监控组件 --&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">    	&lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;</span><br><span class="line">    	&lt;artifactId&gt;spring-cloud-starter-netflix-hystrix-dashboard&lt;/artifactId&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
-
-<p>.yml文件中配置（只需填写端口 仅作为监控）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">server</span><br><span class="line">  port: 9999</span><br></pre></td></tr></table></figure>
-
-<p>启动类添加注解(@EnableHystrixDashboard)</p>
-<p><img src="/2019/08/22/秃头之springCloud-七-服务的监控/1.png" alt="BP"></p>
-<p>在本地端口号后加hystrix 成功标志如图</p>
-<p><img src="/2019/08/22/秃头之springCloud-七-服务的监控/2.png" alt="BP"></p>
-<p>编写Config类 在8001中</p>
-<pre><code>
-@Configuration 
-public class ConfigBean {
-
-    @Bean
-    public  ServletRegistrationBean&lt;HystrixMetricsStreamServlet&gt; getServlet(){
-        HystrixMetricsStreamServlet servlet =new HystrixMetricsStreamServlet(); //
-        ServletRegistrationBean&lt;HystrixMetricsStreamServlet&gt; srb = new ServletRegistrationBean&lt;HystrixMetricsStreamServlet&gt;(servlet);
-        srb.addUrlMappings(&quot;hystrix.stream&quot;);      //设置监控路径
-        srb.setName(&quot;HystrixMetricsStreamServlet&quot;);
-
-        return srb;
-    }
-
-}
-
-</code></pre><p>通过设置的地址访问(localhost:8001/hystrix.stream)</p>
-<p><img src="/2019/08/22/秃头之springCloud-七-服务的监控/4.png" alt="BP"></p>
-<p>直接访问太不友好 图形化监控界面 将地址复制到localhost：9999/hystrix路径下的页面，并将localhost:8001/hystrix.stream写入 </p>
-<p><img src="/2019/08/22/秃头之springCloud-七-服务的监控/5.png" alt="BP"></p>
-<p>图形化监控界面详解</p>
-<p><img src="/2019/08/22/秃头之springCloud-七-服务的监控/6.png" alt="BP"></p>
-
+        
+          <a class="article-more-a" href="/2019/08/22/秃头之springCloud-七-服务的监控/#more">more >></a>
+        
       
 
       
