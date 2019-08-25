@@ -6,19 +6,24 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://m17775514495.github.io">
-  <title>秃头之springCloud(一) 两个项目间通信 | 达文心</title>
+  <title>秃头之springCloud(六) Feign 服务间调用 | 达文心</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="##分包选择select woking set  edit拉入分包区">
+  <meta name="description" content="基本概念feign是一种声明式，模板化的Http客户端，是一个客户端我们就可以发请求。使用Http请求远程服务时能与调用本地方法一样的编码体验。采用注解+接口的方式来实现的。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="秃头之springCloud(一) 两个项目间通信">
-<meta property="og:url" content="http://m17775514495.github.io/2019/08/21/秃头之springCloud之一-两个项目间通信/index.html">
+<meta property="og:title" content="秃头之springCloud(六) Feign 服务间调用">
+<meta property="og:url" content="http://m17775514495.github.io/2019/08/22/秃头之springCloud-六-Feign-服务间调用/index.html">
 <meta property="og:site_name" content="达文心">
-<meta property="og:description" content="##分包选择select woking set  edit拉入分包区">
+<meta property="og:description" content="基本概念feign是一种声明式，模板化的Http客户端，是一个客户端我们就可以发请求。使用Http请求远程服务时能与调用本地方法一样的编码体验。采用注解+接口的方式来实现的。">
 <meta property="og:locale" content="Chinese">
-<meta property="og:updated_time" content="2019-08-20T19:03:32.026Z">
+<meta property="og:image" content="http://m17775514495.github.io/2019/08/22/秃头之springCloud-六-Feign-服务间调用/1.png">
+<meta property="og:image" content="http://m17775514495.github.io/2019/08/22/秃头之springCloud-六-Feign-服务间调用/2.png">
+<meta property="og:image" content="http://m17775514495.github.io/2019/08/22/秃头之springCloud-六-Feign-服务间调用/3.png">
+<meta property="og:image" content="http://m17775514495.github.io/2019/08/22/秃头之springCloud-六-Feign-服务间调用/4.png">
+<meta property="og:updated_time" content="2019-08-22T04:16:12.715Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="秃头之springCloud(一) 两个项目间通信">
-<meta name="twitter:description" content="##分包选择select woking set  edit拉入分包区">
+<meta name="twitter:title" content="秃头之springCloud(六) Feign 服务间调用">
+<meta name="twitter:description" content="基本概念feign是一种声明式，模板化的Http客户端，是一个客户端我们就可以发请求。使用Http请求远程服务时能与调用本地方法一样的编码体验。采用注解+接口的方式来实现的。">
+<meta name="twitter:image" content="http://m17775514495.github.io/2019/08/22/秃头之springCloud-六-Feign-服务间调用/1.png">
   
     <link rel="alternative" href="/atom.xml" title="达文心" type="application/atom+xml">
   
@@ -154,27 +159,48 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-秃头之springCloud之一-两个项目间通信" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-秃头之springCloud-六-Feign-服务间调用" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      秃头之springCloud(一) 两个项目间通信
+      秃头之springCloud(六) Feign 服务间调用
     </h1>
   
 
         
-        <a href="/2019/08/21/秃头之springCloud之一-两个项目间通信/" class="archive-article-date">
-  	<time datetime="2019-08-20T18:47:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-21</time>
+        <a href="/2019/08/22/秃头之springCloud-六-Feign-服务间调用/" class="archive-article-date">
+  	<time datetime="2019-08-21T16:19:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-22</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>##分包<br>选择select woking set  edit拉入分包区 </p>
+        <h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><p>feign是一种声明式，模板化的Http客户端，是一个客户端我们就可以发请求。使用Http请求远程服务时能与调用本地方法一样的编码体验。采用注解+接口的方式来实现的。</p>
+<a id="more"></a>
+<p>使用Feign,只需要创建一个接口注解，它具有可拔插的注解特性，Feign默认集成了Ribbon,负载均衡</p>
+<p>总结:<br>1.Feign采用接口注解<br>2.Feign整合了Ribbon</p>
+<h2 id="使用Feign来调用服务"><a href="#使用Feign来调用服务" class="headerlink" title="使用Feign来调用服务"></a>使用Feign来调用服务</h2><h1 id="1-创建woniu468cloud-customer-feign-80微服务"><a href="#1-创建woniu468cloud-customer-feign-80微服务" class="headerlink" title="1.创建woniu468cloud-customer-feign-80微服务"></a>1.创建woniu468cloud-customer-feign-80微服务</h1><p>在woniu468cloud-customer-feign-80 和common微服务中(等下细说)引入依赖<br>.pom文件与80一致 多一个feign的配置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 引入fegin组件 --&gt;</span><br><span class="line">		  &lt;dependency&gt;</span><br><span class="line">		  	&lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;</span><br><span class="line">		  	&lt;artifactId&gt;spring-cloud-starter-openfeign&lt;/artifactId&gt;</span><br><span class="line">		  &lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+
+<p>在woniucloud父项目中，添加依赖,在父工程中添加，子工程可直接调用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">  &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;</span><br><span class="line">   &lt;artifactId&gt;spring-cloud-openfeign-core&lt;/artifactId&gt;</span><br><span class="line">   &lt;version&gt;2.1.0.RELEASE&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+
+<p>调用远程的微服务*</p>
+<ol>
+<li>在公共类中创建调用接口，可供其它微服务公用<br>param:  @FeignClient(name=”WONIUCLOUD-PROVIDER”) 表示该接口连接的是WONIUCLOUD-PROVIDER微服务，直接在接口中RequestMapping，在实际调用时可直接注入当前RemoteService接口，调用相关微服务业务</li>
+</ol>
+<p><img src="/2019/08/22/秃头之springCloud-六-Feign-服务间调用/1.png" alt="BP"></p>
+<p>实际调用时 直接注入(注意:要先clean 再重新打包)</p>
+<p><img src="/2019/08/22/秃头之springCloud-六-Feign-服务间调用/2.png" alt="BP"></p>
+<p>但是还是不行，更名为Handler成功(额，有bin吧)，将远程调用看做service</p>
+<p><img src="/2019/08/22/秃头之springCloud-六-Feign-服务间调用/3.png" alt="BP"></p>
+<p>创建启动类<br>@EnableEurekaClient //客户端<br>@EnableFeignclients(basePackages=”com.project.interfaces”) //扫描远程访问接口</p>
+<p><img src="/2019/08/22/秃头之springCloud-六-Feign-服务间调用/4.png" alt="BP"></p>
+<p>测试负载均衡 还是老规矩 测试两个数据库</p>
 
       
 
@@ -254,7 +280,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://m17775514495.github.io/2019/08/21/秃头之springCloud之一-两个项目间通信/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://m17775514495.github.io/2019/08/22/秃头之springCloud-六-Feign-服务间调用/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -266,6 +292,25 @@
 </article>
 
   
+<nav id="article-nav">
+  
+    <a href="/2019/08/22/秃头之springCloud-八-服务的降级/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          秃头之springCloud-八-服务的降级
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/08/21/秃头之springCloud-五-熔断器/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">秃头之springCloud(五) 熔断器</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">

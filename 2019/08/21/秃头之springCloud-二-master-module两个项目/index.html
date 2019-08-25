@@ -6,18 +6,27 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://m17775514495.github.io">
-  <title>达文心</title>
+  <title>秃头之springCloud(二) master module两个项目 | 达文心</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="秃头才能变强">
-<meta property="og:type" content="website">
-<meta property="og:title" content="达文心">
-<meta property="og:url" content="http://m17775514495.github.io/index.html">
+  <meta name="description" content="目的: 建立两个项目间通信 划分生产者 消费者module">
+<meta property="og:type" content="article">
+<meta property="og:title" content="秃头之springCloud(二) master module两个项目">
+<meta property="og:url" content="http://m17775514495.github.io/2019/08/21/秃头之springCloud-二-master-module两个项目/index.html">
 <meta property="og:site_name" content="达文心">
-<meta property="og:description" content="秃头才能变强">
+<meta property="og:description" content="目的: 建立两个项目间通信 划分生产者 消费者module">
 <meta property="og:locale" content="Chinese">
+<meta property="og:image" content="http://m17775514495.github.io/2019/08/21/秃头之springCloud-二-master-module两个项目/1.png">
+<meta property="og:image" content="http://m17775514495.github.io/2019/08/21/秃头之springCloud-二-master-module两个项目/2.png">
+<meta property="og:image" content="http://m17775514495.github.io/2019/08/21/秃头之springCloud-二-master-module两个项目/3.png">
+<meta property="og:image" content="http://m17775514495.github.io/2019/08/21/秃头之springCloud-二-master-module两个项目/4.png">
+<meta property="og:image" content="http://m17775514495.github.io/2019/08/21/秃头之springCloud-二-master-module两个项目/5.png">
+<meta property="og:image" content="http://m17775514495.github.io/2019/08/21/秃头之springCloud-二-master-module两个项目/6.png">
+<meta property="og:image" content="http://m17775514495.github.io/2019/08/21/秃头之springCloud-二-master-module两个项目/7.png">
+<meta property="og:updated_time" content="2019-08-21T03:31:01.539Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="达文心">
-<meta name="twitter:description" content="秃头才能变强">
+<meta name="twitter:title" content="秃头之springCloud(二) master module两个项目">
+<meta name="twitter:description" content="目的: 建立两个项目间通信 划分生产者 消费者module">
+<meta name="twitter:image" content="http://m17775514495.github.io/2019/08/21/秃头之springCloud-二-master-module两个项目/1.png">
   
     <link rel="alternative" href="/atom.xml" title="达文心" type="application/atom+xml">
   
@@ -153,34 +162,71 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-数据库之Mycat环境搭建" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-秃头之springCloud-二-master-module两个项目" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/08/24/数据库之Mycat环境搭建/">数据库之Mycat环境搭建</a>
+    <h1 class="article-title" itemprop="name">
+      秃头之springCloud(二) master module两个项目
     </h1>
   
 
         
-        <a href="/2019/08/24/数据库之Mycat环境搭建/" class="archive-article-date">
-  	<time datetime="2019-08-24T14:47:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-24</time>
+        <a href="/2019/08/21/秃头之springCloud-二-master-module两个项目/" class="archive-article-date">
+  	<time datetime="2019-08-21T02:42:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-21</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="下载地址-1-3"><a href="#下载地址-1-3" class="headerlink" title="下载地址(1.3)"></a>下载地址(1.3)</h2><p><a href="https://github.com/MyCATApache/Mycat-server" target="_blank" rel="noopener">https://github.com/MyCATApache/Mycat-server</a></p>
-        
-          <a class="article-more-a" href="/2019/08/24/数据库之Mycat环境搭建/#more">more >></a>
-        
+        <h3 id="目的-建立两个项目间通信-划分生产者-消费者module"><a href="#目的-建立两个项目间通信-划分生产者-消费者module" class="headerlink" title="目的: 建立两个项目间通信 划分生产者 消费者module"></a>目的: 建立两个项目间通信 划分生产者 消费者module</h3><a id="more"></a>
+
+<h2 id="1-分包"><a href="#1-分包" class="headerlink" title="1.分包"></a>1.分包</h2><p><img src="/2019/08/21/秃头之springCloud-二-master-module两个项目/1.png" alt="BP"></p>
+<h2 id="2-创建maven项目-选择pom父工程"><a href="#2-创建maven项目-选择pom父工程" class="headerlink" title="2.创建maven项目  选择pom父工程"></a>2.创建maven项目  选择pom父工程</h2><h2 id="3-引入父工程pom文件"><a href="#3-引入父工程pom文件" class="headerlink" title="3.引入父工程pom文件"></a>3.引入父工程pom文件</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br></pre></td><td class="code"><pre><span class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span><br><span class="line">&lt;project xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot;</span><br><span class="line">         xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span><br><span class="line">         xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;&gt;</span><br><span class="line">    &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;</span><br><span class="line"></span><br><span class="line">    &lt;groupId&gt;com.woniuxy&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;cloud&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;1.0-SNAPSHOT&lt;/version&gt;</span><br><span class="line">    &lt;modules&gt;</span><br><span class="line">        &lt;module&gt;cloud-common&lt;/module&gt;</span><br><span class="line">        &lt;module&gt;cloud-provider-8002&lt;/module&gt;</span><br><span class="line">    &lt;/modules&gt;</span><br><span class="line">    &lt;packaging&gt;pom&lt;/packaging&gt;</span><br><span class="line">    &lt;properties&gt;</span><br><span class="line">        &lt;project.build.sourceEncoding&gt;UTF-8&lt;/project.build.sourceEncoding&gt;</span><br><span class="line">        &lt;maven.compiler.source&gt;1.8&lt;/maven.compiler.source&gt;</span><br><span class="line">        &lt;maven.compiler.target&gt;1.8&lt;/maven.compiler.target&gt;</span><br><span class="line">        &lt;junit.version&gt;4.12&lt;/junit.version&gt;</span><br><span class="line">        &lt;log4j.version&gt;1.2.17&lt;/log4j.version&gt;</span><br><span class="line">        &lt;!--  lombok插件可以消除封装对象需要写重复的代码 --&gt;</span><br><span class="line">        &lt;lombok.version&gt;1.18.8&lt;/lombok.version&gt;</span><br><span class="line">    &lt;/properties&gt;</span><br><span class="line"></span><br><span class="line">    &lt;dependencyManagement&gt;</span><br><span class="line">        &lt;dependencies&gt;</span><br><span class="line">            &lt;!-- springcloud的依赖 --&gt;</span><br><span class="line">            &lt;dependency&gt;</span><br><span class="line">                &lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;</span><br><span class="line">                &lt;artifactId&gt;spring-cloud-dependencies&lt;/artifactId&gt;</span><br><span class="line">                &lt;version&gt;Greenwich.SR1&lt;/version&gt;</span><br><span class="line">                &lt;type&gt;pom&lt;/type&gt;</span><br><span class="line">                &lt;scope&gt;import&lt;/scope&gt;</span><br><span class="line">            &lt;/dependency&gt;</span><br><span class="line">            &lt;!-- springboot依赖 --&gt;</span><br><span class="line">            &lt;dependency&gt;</span><br><span class="line">                &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">                &lt;artifactId&gt;spring-boot-dependencies&lt;/artifactId&gt;</span><br><span class="line">                &lt;version&gt;2.1.0.RELEASE&lt;/version&gt;</span><br><span class="line">                &lt;type&gt;pom&lt;/type&gt;</span><br><span class="line">                &lt;scope&gt;import&lt;/scope&gt;</span><br><span class="line">            &lt;/dependency&gt;</span><br><span class="line">            &lt;!-- 数据库驱动包 --&gt;</span><br><span class="line">            &lt;dependency&gt;</span><br><span class="line">                &lt;groupId&gt;mysql&lt;/groupId&gt;</span><br><span class="line">                &lt;artifactId&gt;mysql-connector-java&lt;/artifactId&gt;</span><br><span class="line">                &lt;version&gt;5.0.4&lt;/version&gt;</span><br><span class="line">            &lt;/dependency&gt;</span><br><span class="line">            &lt;dependency&gt;</span><br><span class="line">                &lt;groupId&gt;com.alibaba&lt;/groupId&gt;</span><br><span class="line">                &lt;artifactId&gt;druid-spring-boot-starter&lt;/artifactId&gt;</span><br><span class="line">                &lt;version&gt;1.1.10&lt;/version&gt;</span><br><span class="line">            &lt;/dependency&gt;</span><br><span class="line">            &lt;dependency&gt;</span><br><span class="line">                &lt;groupId&gt;org.mybatis.spring.boot&lt;/groupId&gt;</span><br><span class="line">                &lt;artifactId&gt;mybatis-spring-boot-starter&lt;/artifactId&gt;</span><br><span class="line">                &lt;version&gt;1.2.2&lt;/version&gt;</span><br><span class="line">            &lt;/dependency&gt;</span><br><span class="line">            &lt;dependency&gt;</span><br><span class="line">                &lt;groupId&gt;junit&lt;/groupId&gt;</span><br><span class="line">                &lt;artifactId&gt;junit&lt;/artifactId&gt;</span><br><span class="line">                &lt;version&gt;$&#123;junit.version&#125;&lt;/version&gt;</span><br><span class="line">                &lt;scope&gt;test&lt;/scope&gt;</span><br><span class="line">            &lt;/dependency&gt;</span><br><span class="line">            &lt;dependency&gt;</span><br><span class="line">                &lt;groupId&gt;log4j&lt;/groupId&gt;</span><br><span class="line">                &lt;artifactId&gt;log4j&lt;/artifactId&gt;</span><br><span class="line">                &lt;version&gt;$&#123;log4j.version&#125;&lt;/version&gt;</span><br><span class="line">            &lt;/dependency&gt;</span><br><span class="line">        &lt;/dependencies&gt;</span><br><span class="line">    &lt;/dependencyManagement&gt;</span><br><span class="line"></span><br><span class="line">    &lt;!-- 等会要读取mavan项目文件的文件的时候需要用到 --&gt;</span><br><span class="line">    &lt;build&gt;</span><br><span class="line">        &lt;finalName&gt;cloud&lt;/finalName&gt;</span><br><span class="line">        &lt;resources&gt;</span><br><span class="line">            &lt;resource&gt;</span><br><span class="line">                &lt;directory&gt;src/main/resources&lt;/directory&gt;</span><br><span class="line">                &lt;filtering&gt;true&lt;/filtering&gt;</span><br><span class="line">            &lt;/resource&gt;</span><br><span class="line">        &lt;/resources&gt;</span><br><span class="line">        &lt;plugins&gt;</span><br><span class="line">            &lt;plugin&gt;</span><br><span class="line">                &lt;groupId&gt;org.apache.maven.plugins&lt;/groupId&gt;</span><br><span class="line">                &lt;artifactId&gt;maven-resources-plugin&lt;/artifactId&gt;</span><br><span class="line">                &lt;configuration&gt;</span><br><span class="line">                    &lt;delimiters&gt;</span><br><span class="line">                        &lt;delimit&gt;$&lt;/delimit&gt;</span><br><span class="line">                    &lt;/delimiters&gt;</span><br><span class="line">                &lt;/configuration&gt;</span><br><span class="line">            &lt;/plugin&gt;</span><br><span class="line">        &lt;/plugins&gt;</span><br><span class="line">    &lt;/build&gt;</span><br><span class="line"> &lt;/project&gt;</span><br></pre></td></tr></table></figure>
+
+<p>​</p>
+<h2 id="4-在父工程中创建maven-module-一个完整的maven项目"><a href="#4-在父工程中创建maven-module-一个完整的maven项目" class="headerlink" title="4.在父工程中创建maven module(一个完整的maven项目)"></a>4.在父工程中创建maven module(一个完整的maven项目)</h2><p>   在父工程pom文件中，子工程会被自动加载到父工程</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;modules&gt;</span><br><span class="line">	&lt;module&gt;woniu468cloud-common&lt;/module&gt;</span><br><span class="line">&lt;/modules&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="5-在导入依赖-公用的部分-如实体类写入common"><a href="#5-在导入依赖-公用的部分-如实体类写入common" class="headerlink" title="5.在导入依赖 (公用的部分 如实体类写入common)"></a>5.在导入依赖 (公用的部分 如实体类写入common)</h2>   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependencies&gt;</span><br><span class="line">	&lt;dependency&gt;</span><br><span class="line">		&lt;groupId&gt;org.projectlombok&lt;/groupId&gt;</span><br><span class="line">		&lt;artifactId&gt;lombok&lt;/artifactId&gt;</span><br><span class="line">	&lt;/dependency&gt;</span><br><span class="line">&lt;/dependencies&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="6-创建数据提供者-module"><a href="#6-创建数据提供者-module" class="headerlink" title="6.创建数据提供者 module"></a>6.创建数据提供者 module</h2><p><img src="/2019/08/21/秃头之springCloud-二-master-module两个项目/2.png" alt="BP"></p>
+<h2 id="7-在woniu468cloud-provider-8002中引入公共common打成的jar包-生产者"><a href="#7-在woniu468cloud-provider-8002中引入公共common打成的jar包-生产者" class="headerlink" title="7.在woniu468cloud-provider-8002中引入公共common打成的jar包(生产者)"></a>7.在woniu468cloud-provider-8002中引入公共common打成的jar包(生产者)</h2><h3 id="将maven项目打成jar包，导入本地仓库"><a href="#将maven项目打成jar包，导入本地仓库" class="headerlink" title="将maven项目打成jar包，导入本地仓库**"></a>将maven项目打成jar包，导入本地仓库**</h3><p><img src="/2019/08/21/秃头之springCloud-二-master-module两个项目/3.png" alt="BP"></p>
+<h3 id="在-pom中引入"><a href="#在-pom中引入" class="headerlink" title="在.pom中引入"></a>在.pom中引入</h3>   <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependencies&gt;</span><br><span class="line">    &lt;!-- 依赖公共模块 --&gt;</span><br><span class="line">     	&lt;dependency&gt;</span><br><span class="line">     	    &lt;groupId&gt;com.woniuxy&lt;/groupId&gt;</span><br><span class="line">     		&lt;artifactId&gt;woniu468cloud-common&lt;/artifactId&gt;</span><br><span class="line">     		&lt;version&gt;$&#123;project.version&#125;&lt;/version&gt;</span><br><span class="line">     	&lt;/dependency&gt;</span><br><span class="line">     	</span><br><span class="line">     	&lt;dependency&gt;</span><br><span class="line">     		&lt;groupId&gt;junit&lt;/groupId&gt;</span><br><span class="line">     		&lt;artifactId&gt;junit&lt;/artifactId&gt;</span><br><span class="line">     	&lt;/dependency&gt;</span><br><span class="line">     	</span><br><span class="line">     	&lt;dependency&gt;</span><br><span class="line">     		&lt;groupId&gt;mysql&lt;/groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;mysql-connector-java&lt;/artifactId&gt;</span><br><span class="line">     	&lt;/dependency&gt;</span><br><span class="line">     	</span><br><span class="line">     	 &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;com.alibaba&lt;/groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;druid-spring-boot-starter&lt;/artifactId&gt;</span><br><span class="line">        </span><br><span class="line">        &lt;/dependency&gt;</span><br><span class="line">        </span><br><span class="line">         &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;org.mybatis.spring.boot&lt;/groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;mybatis-spring-boot-starter&lt;/artifactId&gt;</span><br><span class="line">            </span><br><span class="line">        &lt;/dependency&gt;</span><br><span class="line">          &lt;dependency&gt;</span><br><span class="line">          	&lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">          	&lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;</span><br><span class="line">          &lt;/dependency&gt;</span><br><span class="line">          &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;spring-boot-starter-tomcat&lt;/artifactId&gt;</span><br><span class="line">        &lt;/dependency&gt;</span><br><span class="line">         &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;spring-boot-starter-test&lt;/artifactId&gt;</span><br><span class="line">        &lt;/dependency&gt;</span><br><span class="line">             &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;spring-boot-devtools&lt;/artifactId&gt;</span><br><span class="line">        &lt;/dependency&gt;</span><br><span class="line">   &lt;/dependencies&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="8-创建消费者customer端口号为80"><a href="#8-创建消费者customer端口号为80" class="headerlink" title="8.创建消费者customer端口号为80"></a>8.创建消费者customer端口号为80</h2><p>  <img src="/2019/08/21/秃头之springCloud-二-master-module两个项目/4.png" alt="BP"></p>
+<h3 id="导入依赖并设置端口号为80-yml"><a href="#导入依赖并设置端口号为80-yml" class="headerlink" title="导入依赖并设置端口号为80(yml)"></a>导入依赖并设置端口号为80(yml)</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependencies&gt;</span><br><span class="line"> 	    &lt;!-- 依赖公共模块 --&gt;</span><br><span class="line">    	&lt;dependency&gt;</span><br><span class="line">    	    &lt;groupId&gt;com.woniuxy&lt;/groupId&gt;</span><br><span class="line">    		&lt;artifactId&gt;woniu468cloud-common&lt;/artifactId&gt;</span><br><span class="line">    		&lt;version&gt;$&#123;project.version&#125;&lt;/version&gt;</span><br><span class="line">    	&lt;/dependency&gt;</span><br><span class="line">    	</span><br><span class="line">       &lt;dependency&gt;</span><br><span class="line">           &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">           &lt;artifactId&gt;spring-boot-devtools&lt;/artifactId&gt;</span><br><span class="line">       &lt;/dependency&gt;</span><br><span class="line">       </span><br><span class="line">         &lt;dependency&gt;</span><br><span class="line">         	&lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">         	&lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;</span><br><span class="line">         &lt;/dependency&gt;</span><br><span class="line"> &lt;/dependencies&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="使用RestTemplate访问远程端口号-注入如下"><a href="#使用RestTemplate访问远程端口号-注入如下" class="headerlink" title="使用RestTemplate访问远程端口号 注入如下"></a>使用RestTemplate访问远程端口号 注入如下</h3><p>  <img src="/2019/08/21/秃头之springCloud-二-master-module两个项目/5.png" alt="BP"></p>
+<h3 id="调用远程接口-生产者中接口-我的端口号为8002"><a href="#调用远程接口-生产者中接口-我的端口号为8002" class="headerlink" title="调用远程接口(生产者中接口 我的端口号为8002)"></a>调用远程接口(生产者中接口 我的端口号为8002)</h3><p>  <img src="/2019/08/21/秃头之springCloud-二-master-module两个项目/6.png" alt="BP"> </p>
+<h3 id="注：启动类中别忘了扫描配置类等"><a href="#注：启动类中别忘了扫描配置类等" class="headerlink" title="注：启动类中别忘了扫描配置类等"></a>注：启动类中别忘了扫描配置类等</h3><p>  <img src="/2019/08/21/秃头之springCloud-二-master-module两个项目/7.png" alt="BP"></p>
+
       
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -189,16 +235,84 @@
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/08/24/数据库之Mycat环境搭建/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://m17775514495.github.io/2019/08/21/秃头之springCloud-二-master-module两个项目/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2019/08/21/秃头之springCloud-一-简单介绍/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          秃头之springCloud(一) 简单介绍
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/06/21/秃头之springCloud-九-Zuul-路由/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">秃头之springCloud-九-Zuul 路由</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -218,628 +332,14 @@
 
 
 
-
-  
-    <article id="post-数据库之Mycat简介" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/08/24/数据库之Mycat简介/">数据库之Mycat简介</a>
-    </h1>
-  
-
-        
-        <a href="/2019/08/24/数据库之Mycat简介/" class="archive-article-date">
-  	<time datetime="2019-08-24T14:40:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-24</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="读写分离概念"><a href="#读写分离概念" class="headerlink" title="读写分离概念"></a>读写分离概念</h2><p>类似于读写Redis，读写分离顾明思意，读从从机读，而写入从主机写入，再同步到从机。当然你可以搭建多台从机</p>
-        
-          <a class="article-more-a" href="/2019/08/24/数据库之Mycat简介/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/08/24/数据库之Mycat简介/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-秃头之springCloud-十-配置中心" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/08/22/秃头之springCloud-十-配置中心/">秃头之springCloud-十-配置中心</a>
-    </h1>
-  
-
-        
-        <a href="/2019/08/22/秃头之springCloud-十-配置中心/" class="archive-article-date">
-  	<time datetime="2019-08-22T13:45:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-22</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>每个项目都有大量的配置文件，如果采用分布式开发模式，配置文件随着服务增加而增多。避免配置文件因为变更而重启<br>将配置信息中央化保存，将配置信息放在Github/svn/File(文件服务器)上边,创建Config Server（配置文件服务）Config Server 与Github连接，其它微服务从Config Server获取</p>
-        
-          <a class="article-more-a" href="/2019/08/22/秃头之springCloud-十-配置中心/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/08/22/秃头之springCloud-十-配置中心/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-秃头之springCloud-七-服务的监控" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/08/22/秃头之springCloud-七-服务的监控/">秃头之springCloud-七-服务的监控</a>
-    </h1>
-  
-
-        
-        <a href="/2019/08/22/秃头之springCloud-七-服务的监控/" class="archive-article-date">
-  	<time datetime="2019-08-22T09:29:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-22</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="为了解决微服务过多的问题"><a href="#为了解决微服务过多的问题" class="headerlink" title="为了解决微服务过多的问题"></a>为了解决微服务过多的问题</h2><p>监控每一个微服务的运行状态和针对微服务进行优化</p>
-<h2 id="监控工具-Hystrix-dashboard-Turbine"><a href="#监控工具-Hystrix-dashboard-Turbine" class="headerlink" title="监控工具(Hystrix-dashboard Turbine)"></a>监控工具(Hystrix-dashboard Turbine)</h2><p>Hystrix-dashboard(单机监控工具) 是一款针对Hystrix进行实时监控额工具，可以看到个Hystrix Command的请求响应时间，请求成功率等数据，但是只能看到单个应用内的服务信息，所以我们用Turbine(集群监控工具)来进行汇总多个服务的数据并显示到Hystrix Dashboard上。</p>
-<h2 id="单机监控-不做集群时"><a href="#单机监控-不做集群时" class="headerlink" title="单机监控(不做集群时)"></a>单机监控(不做集群时)</h2><p>1.创建项目</p>
-<p>woniu468cloud-provider-hystrix-dashboard-9999</p>
-<p>2.导入依赖（相比于8002多一个监控组件）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 依赖公共模块 --&gt;</span><br><span class="line"> 	&lt;dependency&gt;</span><br><span class="line"> 	    &lt;groupId&gt;com.woniuxy&lt;/groupId&gt;</span><br><span class="line"> 		&lt;artifactId&gt;woniu468cloud-common&lt;/artifactId&gt;</span><br><span class="line"> 		&lt;version&gt;$&#123;project.version&#125;&lt;/version&gt;</span><br><span class="line"> 	&lt;/dependency&gt;</span><br><span class="line"> 	</span><br><span class="line"> 	&lt;dependency&gt;</span><br><span class="line"> 		&lt;groupId&gt;junit&lt;/groupId&gt;</span><br><span class="line"> 		&lt;artifactId&gt;junit&lt;/artifactId&gt;</span><br><span class="line"> 	&lt;/dependency&gt;</span><br><span class="line"> 	</span><br><span class="line"> 	&lt;dependency&gt;</span><br><span class="line"> 		&lt;groupId&gt;mysql&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;mysql-connector-java&lt;/artifactId&gt;</span><br><span class="line"> 	&lt;/dependency&gt;</span><br><span class="line"> 	</span><br><span class="line"> 	 &lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;com.alibaba&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;druid-spring-boot-starter&lt;/artifactId&gt;</span><br><span class="line">    </span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line">    </span><br><span class="line">     &lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;org.mybatis.spring.boot&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;mybatis-spring-boot-starter&lt;/artifactId&gt;</span><br><span class="line">        </span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line">      &lt;dependency&gt;</span><br><span class="line">      	&lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">      	&lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;</span><br><span class="line">      &lt;/dependency&gt;</span><br><span class="line">      &lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;spring-boot-starter-tomcat&lt;/artifactId&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line">     &lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;spring-boot-starter-test&lt;/artifactId&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line">         &lt;dependency&gt;</span><br><span class="line">        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">        &lt;artifactId&gt;spring-boot-devtools&lt;/artifactId&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line">    </span><br><span class="line">    &lt;!-- 将微服务provider注册进eureka 作为客户端--&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">    	&lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;</span><br><span class="line">    	&lt;artifactId&gt;spring-cloud-netflix-eureka-client&lt;/artifactId&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line">    </span><br><span class="line">    &lt;!-- actuator监控信息 --&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">    	&lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">    	&lt;artifactId&gt;spring-boot-starter-actuator&lt;/artifactId&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br><span class="line">    </span><br><span class="line">    &lt;!-- 监控组件 --&gt;</span><br><span class="line">    &lt;dependency&gt;</span><br><span class="line">    	&lt;groupId&gt;org.springframework.cloud&lt;/groupId&gt;</span><br><span class="line">    	&lt;artifactId&gt;spring-cloud-starter-netflix-hystrix-dashboard&lt;/artifactId&gt;</span><br><span class="line">    &lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
-
-<p>.yml文件中配置（只需填写端口 仅作为监控）</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">server</span><br><span class="line">  port: 9999</span><br></pre></td></tr></table></figure>
-
-<p>启动类添加注解(@EnableHystrixDashboard)</p>
-<p><img src="/2019/08/22/秃头之springCloud-七-服务的监控/1.png" alt="BP"></p>
-<p>在本地端口号后加hystrix 成功标志如图</p>
-<p><img src="/2019/08/22/秃头之springCloud-七-服务的监控/2.png" alt="BP"></p>
-<p>编写Config类 在8001中</p>
-<pre><code>
-@Configuration 
-public class ConfigBean {
-
-    @Bean
-    public  ServletRegistrationBean&lt;HystrixMetricsStreamServlet&gt; getServlet(){
-        HystrixMetricsStreamServlet servlet =new HystrixMetricsStreamServlet(); //
-        ServletRegistrationBean&lt;HystrixMetricsStreamServlet&gt; srb = new ServletRegistrationBean&lt;HystrixMetricsStreamServlet&gt;(servlet);
-        srb.addUrlMappings(&quot;hystrix.stream&quot;);      //设置监控路径
-        srb.setName(&quot;HystrixMetricsStreamServlet&quot;);
-
-        return srb;
-    }
-
-}
-
-</code></pre><p>通过设置的地址访问(localhost:8001/hystrix.stream)</p>
-<p><img src="/2019/08/22/秃头之springCloud-七-服务的监控/4.png" alt="BP"></p>
-<p>直接访问太不友好 图形化监控界面 将地址复制到localhost：9999/hystrix路径下的页面，并将localhost:8001/hystrix.stream写入 </p>
-<p><img src="/2019/08/22/秃头之springCloud-七-服务的监控/5.png" alt="BP"></p>
-<p>图形化监控界面详解</p>
-<p><img src="/2019/08/22/秃头之springCloud-七-服务的监控/6.png" alt="BP"></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/08/22/秃头之springCloud-七-服务的监控/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-秃头之springCloud-八-服务的降级" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/08/22/秃头之springCloud-八-服务的降级/">秃头之springCloud-八-服务的降级</a>
-    </h1>
-  
-
-        
-        <a href="/2019/08/22/秃头之springCloud-八-服务的降级/" class="archive-article-date">
-  	<time datetime="2019-08-22T05:59:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-22</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="什么是服务的降级"><a href="#什么是服务的降级" class="headerlink" title="什么是服务的降级"></a>什么是服务的降级</h2><p>在服务器压力剧增的情况下，根据实际业务形况及力量，<strong>对一些服务和页面有策略的不处理或换种简单的处理方式</strong>，从而释放服务器资源以保证核心交易正常运作或高效运作</p>
-        
-          <a class="article-more-a" href="/2019/08/22/秃头之springCloud-八-服务的降级/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/08/22/秃头之springCloud-八-服务的降级/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-秃头之springCloud-六-Feign-服务间调用" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/08/22/秃头之springCloud-六-Feign-服务间调用/">秃头之springCloud(六) Feign 服务间调用</a>
-    </h1>
-  
-
-        
-        <a href="/2019/08/22/秃头之springCloud-六-Feign-服务间调用/" class="archive-article-date">
-  	<time datetime="2019-08-21T16:19:14.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-22</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><p>feign是一种声明式，模板化的Http客户端，是一个客户端我们就可以发请求。使用Http请求远程服务时能与调用本地方法一样的编码体验。采用注解+接口的方式来实现的。</p>
-        
-          <a class="article-more-a" href="/2019/08/22/秃头之springCloud-六-Feign-服务间调用/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/08/22/秃头之springCloud-六-Feign-服务间调用/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="w-秃头之springCloud-五-熔断器" class="article article-type-w  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/08/21/秃头之springCloud-五-熔断器/">秃头之springCloud(五) 熔断器</a>
-    </h1>
-  
-
-        
-        <a href="/2019/08/21/秃头之springCloud-五-熔断器/" class="archive-article-date">
-  	<time datetime="2019-08-21T15:48:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-21</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><p>熔断器，熔断管理工具，旨在通过熔断机制控制服务和第三方库的节点，从而对延迟和故障提供更强大的容错能力。<br>熔断器相当于家里的电路保险开关，一旦电流过大(访问量过大)，或者电路短路(微服务报错)时马上断开。防止引起火灾(提高程序的容错能力)，</p>
-        
-          <a class="article-more-a" href="/2019/08/21/秃头之springCloud-五-熔断器/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/08/21/秃头之springCloud-五-熔断器/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="w-秃头之springCloud-四-Ribbon-负载均衡" class="article article-type-w  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/08/21/秃头之springCloud-四-Ribbon-负载均衡/">秃头之springCloud(四) Ribbon 负载均衡</a>
-    </h1>
-  
-
-        
-        <a href="/2019/08/21/秃头之springCloud-四-Ribbon-负载均衡/" class="archive-article-date">
-  	<time datetime="2019-08-21T14:38:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-21</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>Spring Cloud Ribbon 是一个基于HTTP和TCP的客户端负载均衡工具，基于Netflix Ribbon实现。<strong>通过Spring Cloud的封装 将Rest模板请求自动转换为客户(消费)端负载均衡的服务调用 并可使用不同的负载均衡算法 如轮询(默认) 随机等</strong></p>
-        
-          <a class="article-more-a" href="/2019/08/21/秃头之springCloud-四-Ribbon-负载均衡/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/08/21/秃头之springCloud-四-Ribbon-负载均衡/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-秃头之springCloud-三-Eureka-注册中心" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/08/21/秃头之springCloud-三-Eureka-注册中心/">秃头之springCloud(三) Eureka 注册中心</a>
-    </h1>
-  
-
-        
-        <a href="/2019/08/21/秃头之springCloud-三-Eureka-注册中心/" class="archive-article-date">
-  	<time datetime="2019-08-21T13:45:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-21</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>  Eureka是Netflflix开源的一款提供服务注册和发现的产品，它提供了Discovery实现，也是springCloud体系中最重要的核心组件之一。注册中心EureKa管理各种功能包括服务的注册，发现，熔断，负载，降级等(接下来会意义研究)，Eureka类似于springioc容器，用于管理各种服务对象。<br>  也就是说各种项目到注册中心注册，其它服务通过注册中心找到对应的服务调用接口等操作(不需要再关心具体的项目IP地址，因为可能做了集群操作)</p>
-        
-          <a class="article-more-a" href="/2019/08/21/秃头之springCloud-三-Eureka-注册中心/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/08/21/秃头之springCloud-三-Eureka-注册中心/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-秃头之springCloud-一-简单介绍" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/08/21/秃头之springCloud-一-简单介绍/">秃头之springCloud(一) 简单介绍</a>
-    </h1>
-  
-
-        
-        <a href="/2019/08/21/秃头之springCloud-一-简单介绍/" class="archive-article-date">
-  	<time datetime="2019-08-21T02:45:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-21</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/08/21/秃头之springCloud-一-简单介绍/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
   
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
-    </nav>
+  
+
+  
+
+  
+
   
 
 
@@ -862,8 +362,8 @@ public class ConfigBean {
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
