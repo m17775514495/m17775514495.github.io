@@ -6,24 +6,26 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://m17775514495.github.io">
-  <title>策略模式 | 达文心</title>
+  <title>工厂模式+策略模式+枚举类三合一 | 达文心</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="策略模式这两天写流程判断时用到很多if else 巨丑，百度之后发现可以用单例模式+简单工厂模式+注解+反射，任重而道远 先来试试策略模式 概念古有行兵36计，今有爱情36计，策略从来都不是只有一种的，追不同的人加载不同的策略去追才能成功。这就是策略模式。比如当年的游戏掌机只有俄罗斯方块那种。很快人们就玩腻了，但后来任天堂就推出了可以换卡的掌机，一个掌机可以加载不同的游戏，不同的游戏就等同于加载不">
+  <meta name="description" content="工厂模式+策略模式+枚举类三合一目的消除if else  策略模式1.制作一个计算器2.定义策略Strategy接口，定义算法标准 3.创建不同的策略 如 相加 或 相减 实现Strategy接口,并实现方法 4.创建计算器类 枚举类 验证创建新的计算器类，并使用工厂创建策略">
 <meta property="og:type" content="article">
-<meta property="og:title" content="策略模式">
-<meta property="og:url" content="http://m17775514495.github.io/2019/12/10/策略模式/index.html">
+<meta property="og:title" content="工厂模式+策略模式+枚举类三合一">
+<meta property="og:url" content="http://m17775514495.github.io/2019/12/11/工厂模式-策略模式-枚举类三合一/index.html">
 <meta property="og:site_name" content="达文心">
-<meta property="og:description" content="策略模式这两天写流程判断时用到很多if else 巨丑，百度之后发现可以用单例模式+简单工厂模式+注解+反射，任重而道远 先来试试策略模式 概念古有行兵36计，今有爱情36计，策略从来都不是只有一种的，追不同的人加载不同的策略去追才能成功。这就是策略模式。比如当年的游戏掌机只有俄罗斯方块那种。很快人们就玩腻了，但后来任天堂就推出了可以换卡的掌机，一个掌机可以加载不同的游戏，不同的游戏就等同于加载不">
+<meta property="og:description" content="工厂模式+策略模式+枚举类三合一目的消除if else  策略模式1.制作一个计算器2.定义策略Strategy接口，定义算法标准 3.创建不同的策略 如 相加 或 相减 实现Strategy接口,并实现方法 4.创建计算器类 枚举类 验证创建新的计算器类，并使用工厂创建策略">
 <meta property="og:locale" content="Chinese">
-<meta property="og:image" content="http://m17775514495.github.io/2019/12/10/策略模式/1.png">
-<meta property="og:image" content="http://m17775514495.github.io/2019/12/10/策略模式/2.png">
-<meta property="og:image" content="http://m17775514495.github.io/2019/12/10/策略模式/3.png">
-<meta property="og:image" content="http://m17775514495.github.io/2019/12/10/策略模式/4.png">
-<meta property="og:updated_time" content="2019-12-10T09:38:38.054Z">
+<meta property="og:image" content="http://m17775514495.github.io/2019/12/11/工厂模式-策略模式-枚举类三合一/1.png">
+<meta property="og:image" content="http://m17775514495.github.io/2019/12/11/工厂模式-策略模式-枚举类三合一/2.png">
+<meta property="og:image" content="http://m17775514495.github.io/2019/12/11/工厂模式-策略模式-枚举类三合一/3.png">
+<meta property="og:image" content="http://m17775514495.github.io/2019/12/11/工厂模式-策略模式-枚举类三合一/4.png">
+<meta property="og:image" content="http://m17775514495.github.io/2019/12/11/工厂模式-策略模式-枚举类三合一/5.png">
+<meta property="og:image" content="http://m17775514495.github.io/2019/12/11/工厂模式-策略模式-枚举类三合一/6.png">
+<meta property="og:updated_time" content="2019-12-11T07:00:50.943Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="策略模式">
-<meta name="twitter:description" content="策略模式这两天写流程判断时用到很多if else 巨丑，百度之后发现可以用单例模式+简单工厂模式+注解+反射，任重而道远 先来试试策略模式 概念古有行兵36计，今有爱情36计，策略从来都不是只有一种的，追不同的人加载不同的策略去追才能成功。这就是策略模式。比如当年的游戏掌机只有俄罗斯方块那种。很快人们就玩腻了，但后来任天堂就推出了可以换卡的掌机，一个掌机可以加载不同的游戏，不同的游戏就等同于加载不">
-<meta name="twitter:image" content="http://m17775514495.github.io/2019/12/10/策略模式/1.png">
+<meta name="twitter:title" content="工厂模式+策略模式+枚举类三合一">
+<meta name="twitter:description" content="工厂模式+策略模式+枚举类三合一目的消除if else  策略模式1.制作一个计算器2.定义策略Strategy接口，定义算法标准 3.创建不同的策略 如 相加 或 相减 实现Strategy接口,并实现方法 4.创建计算器类 枚举类 验证创建新的计算器类，并使用工厂创建策略">
+<meta name="twitter:image" content="http://m17775514495.github.io/2019/12/11/工厂模式-策略模式-枚举类三合一/1.png">
   
     <link rel="alternative" href="/atom.xml" title="达文心" type="application/atom+xml">
   
@@ -159,32 +161,34 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-策略模式" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="w-工厂模式-策略模式-枚举类三合一" class="article article-type-w " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      策略模式
+      工厂模式+策略模式+枚举类三合一
     </h1>
   
 
         
-        <a href="/2019/12/10/策略模式/" class="archive-article-date">
-  	<time datetime="2019-12-10T08:21:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-10</time>
+        <a href="/2019/12/11/工厂模式-策略模式-枚举类三合一/" class="archive-article-date">
+  	<time datetime="2019-12-11T06:53:46.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-12-11</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="策略模式"><a href="#策略模式" class="headerlink" title="策略模式"></a>策略模式</h1><p>这两天写流程判断时用到很多if else 巨丑，百度之后发现可以用单例模式+简单工厂模式+注解+反射，任重而道远 先来试试策略模式</p>
-<h1 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h1><p>古有行兵36计，今有爱情36计，策略从来都不是只有一种的，追不同的人加载不同的策略去追才能成功。这就是策略模式。比如当年的游戏掌机只有俄罗斯方块那种。很快人们就玩腻了，但后来任天堂就推出了可以换卡的掌机，一个掌机可以加载不同的游戏，不同的游戏就等同于加载不同的策略。</p>
-<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><h3 id="1-制作一个计算器"><a href="#1-制作一个计算器" class="headerlink" title="1.制作一个计算器"></a>1.制作一个计算器</h3><h3 id="2-定义策略Strategy接口，定义算法标准"><a href="#2-定义策略Strategy接口，定义算法标准" class="headerlink" title="2.定义策略Strategy接口，定义算法标准"></a>2.定义策略Strategy接口，定义算法标准</h3><p><img src="/2019/12/10/策略模式/1.png" alt="BP"></p>
-<h3 id="3-创建不同的策略-如-相加-或-相减-实现Strategy接口-并实现方法"><a href="#3-创建不同的策略-如-相加-或-相减-实现Strategy接口-并实现方法" class="headerlink" title="3.创建不同的策略 如 相加 或 相减 实现Strategy接口,并实现方法"></a>3.创建不同的策略 如 相加 或 相减 实现Strategy接口,并实现方法</h3><p><img src="/2019/12/10/策略模式/2.png" alt="BP"></p>
-<h3 id="4-创建计算器类"><a href="#4-创建计算器类" class="headerlink" title="4.创建计算器类"></a>4.创建计算器类</h3><p><img src="/2019/12/10/策略模式/3.png" alt="BP"></p>
-<h3 id="5-验证"><a href="#5-验证" class="headerlink" title="5.验证"></a>5.验证</h3><p><img src="/2019/12/10/策略模式/4.png" alt="BP"></p>
+        <h1 id="工厂模式-策略模式-枚举类三合一"><a href="#工厂模式-策略模式-枚举类三合一" class="headerlink" title="工厂模式+策略模式+枚举类三合一"></a>工厂模式+策略模式+枚举类三合一</h1><h2 id="目的"><a href="#目的" class="headerlink" title="目的"></a>目的</h2><p>消除if else </p>
+<h2 id="策略模式"><a href="#策略模式" class="headerlink" title="策略模式"></a>策略模式</h2><h3 id="1-制作一个计算器"><a href="#1-制作一个计算器" class="headerlink" title="1.制作一个计算器"></a>1.制作一个计算器</h3><h3 id="2-定义策略Strategy接口，定义算法标准"><a href="#2-定义策略Strategy接口，定义算法标准" class="headerlink" title="2.定义策略Strategy接口，定义算法标准"></a>2.定义策略Strategy接口，定义算法标准</h3><p><img src="/2019/12/11/工厂模式-策略模式-枚举类三合一/1.png" alt="BP"></p>
+<h3 id="3-创建不同的策略-如-相加-或-相减-实现Strategy接口-并实现方法"><a href="#3-创建不同的策略-如-相加-或-相减-实现Strategy接口-并实现方法" class="headerlink" title="3.创建不同的策略 如 相加 或 相减 实现Strategy接口,并实现方法"></a>3.创建不同的策略 如 相加 或 相减 实现Strategy接口,并实现方法</h3><p><img src="/2019/12/11/工厂模式-策略模式-枚举类三合一/2.png" alt="BP"></p>
+<h3 id="4-创建计算器类"><a href="#4-创建计算器类" class="headerlink" title="4.创建计算器类"></a>4.创建计算器类</h3><p><img src="/2019/12/11/工厂模式-策略模式-枚举类三合一/3.png" alt="BP"></p>
+<h2 id="枚举类"><a href="#枚举类" class="headerlink" title="枚举类"></a>枚举类</h2><p><img src="/2019/12/11/工厂模式-策略模式-枚举类三合一/4.png" alt="BP"></p>
+<h2 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h2><p>创建新的计算器类，并使用工厂创建策略</p>
+<p><img src="/2019/12/11/工厂模式-策略模式-枚举类三合一/5.png" alt="BP"></p>
+<p><img src="/2019/12/11/工厂模式-策略模式-枚举类三合一/6.png" alt="BP"></p>
 
       
 
@@ -275,7 +279,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://m17775514495.github.io/2019/12/10/策略模式/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://m17775514495.github.io/2019/12/11/工厂模式-策略模式-枚举类三合一/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -289,18 +293,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/12/11/枚举类/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          枚举类
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/11/19/十大经典算法/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">十大经典算法</div>
+    <a href="/2019/12/11/枚举类/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">枚举类</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -327,7 +322,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#策略模式"><span class="toc-number">1.</span> <span class="toc-text">策略模式</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#概念"><span class="toc-number">2.</span> <span class="toc-text">概念</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#代码"><span class="toc-number">3.</span> <span class="toc-text">代码</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-制作一个计算器"><span class="toc-number">3.0.1.</span> <span class="toc-text">1.制作一个计算器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-定义策略Strategy接口，定义算法标准"><span class="toc-number">3.0.2.</span> <span class="toc-text">2.定义策略Strategy接口，定义算法标准</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-创建不同的策略-如-相加-或-相减-实现Strategy接口-并实现方法"><span class="toc-number">3.0.3.</span> <span class="toc-text">3.创建不同的策略 如 相加 或 相减 实现Strategy接口,并实现方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-创建计算器类"><span class="toc-number">3.0.4.</span> <span class="toc-text">4.创建计算器类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-验证"><span class="toc-number">3.0.5.</span> <span class="toc-text">5.验证</span></a></li></ol></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#工厂模式-策略模式-枚举类三合一"><span class="toc-number">1.</span> <span class="toc-text">工厂模式+策略模式+枚举类三合一</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#目的"><span class="toc-number">1.1.</span> <span class="toc-text">目的</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#策略模式"><span class="toc-number">1.2.</span> <span class="toc-text">策略模式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-制作一个计算器"><span class="toc-number">1.2.1.</span> <span class="toc-text">1.制作一个计算器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-定义策略Strategy接口，定义算法标准"><span class="toc-number">1.2.2.</span> <span class="toc-text">2.定义策略Strategy接口，定义算法标准</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-创建不同的策略-如-相加-或-相减-实现Strategy接口-并实现方法"><span class="toc-number">1.2.3.</span> <span class="toc-text">3.创建不同的策略 如 相加 或 相减 实现Strategy接口,并实现方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-创建计算器类"><span class="toc-number">1.2.4.</span> <span class="toc-text">4.创建计算器类</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#枚举类"><span class="toc-number">1.3.</span> <span class="toc-text">枚举类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#验证"><span class="toc-number">1.4.</span> <span class="toc-text">验证</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
