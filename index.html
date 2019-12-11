@@ -175,15 +175,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="工厂模式-策略模式-枚举类三合一"><a href="#工厂模式-策略模式-枚举类三合一" class="headerlink" title="工厂模式+策略模式+枚举类三合一"></a>工厂模式+策略模式+枚举类三合一</h1><h2 id="目的"><a href="#目的" class="headerlink" title="目的"></a>目的</h2><p>消除if else </p>
-<h2 id="策略模式"><a href="#策略模式" class="headerlink" title="策略模式"></a>策略模式</h2><h3 id="1-制作一个计算器"><a href="#1-制作一个计算器" class="headerlink" title="1.制作一个计算器"></a>1.制作一个计算器</h3><h3 id="2-定义策略Strategy接口，定义算法标准"><a href="#2-定义策略Strategy接口，定义算法标准" class="headerlink" title="2.定义策略Strategy接口，定义算法标准"></a>2.定义策略Strategy接口，定义算法标准</h3><p><img src="/2019/12/11/工厂模式-策略模式-枚举类三合一/1.png" alt="BP"></p>
-<h3 id="3-创建不同的策略-如-相加-或-相减-实现Strategy接口-并实现方法"><a href="#3-创建不同的策略-如-相加-或-相减-实现Strategy接口-并实现方法" class="headerlink" title="3.创建不同的策略 如 相加 或 相减 实现Strategy接口,并实现方法"></a>3.创建不同的策略 如 相加 或 相减 实现Strategy接口,并实现方法</h3><p><img src="/2019/12/11/工厂模式-策略模式-枚举类三合一/2.png" alt="BP"></p>
-<h3 id="4-创建计算器类"><a href="#4-创建计算器类" class="headerlink" title="4.创建计算器类"></a>4.创建计算器类</h3><p><img src="/2019/12/11/工厂模式-策略模式-枚举类三合一/3.png" alt="BP"></p>
-<h2 id="枚举类"><a href="#枚举类" class="headerlink" title="枚举类"></a>枚举类</h2><p><img src="/2019/12/11/工厂模式-策略模式-枚举类三合一/4.png" alt="BP"></p>
-<h2 id="验证"><a href="#验证" class="headerlink" title="验证"></a>验证</h2><p>创建新的计算器类，并使用工厂创建策略</p>
-<p><img src="/2019/12/11/工厂模式-策略模式-枚举类三合一/5.png" alt="BP"></p>
-<p><img src="/2019/12/11/工厂模式-策略模式-枚举类三合一/6.png" alt="BP"></p>
-
+        <h1 id="工厂模式-策略模式-枚举类三合一"><a href="#工厂模式-策略模式-枚举类三合一" class="headerlink" title="工厂模式+策略模式+枚举类三合一"></a>工厂模式+策略模式+枚举类三合一</h1>
+        
+          <a class="article-more-a" href="/2019/12/11/工厂模式-策略模式-枚举类三合一/#more">more >></a>
+        
       
 
       
@@ -256,15 +251,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="枚举类"><a href="#枚举类" class="headerlink" title="枚举类"></a>枚举类</h1><h2 id="目的"><a href="#目的" class="headerlink" title="目的"></a>目的</h2><p>为了优化if else，所以使用枚举+工厂+策略模式，暂时先不考虑注解。枚举学过，但一直用静态常量代替，其实并没有怎么使用过。这里来写一写代码熟悉一下</p>
-<h2 id="核心语法"><a href="#核心语法" class="headerlink" title="核心语法"></a>核心语法</h2><p>用enum修饰类，声明的枚举常量要在第一行，可以实现接口，不能继承另一个枚举类</p>
-<h2 id="创建枚举-并加入参数"><a href="#创建枚举-并加入参数" class="headerlink" title="创建枚举 并加入参数"></a>创建枚举 并加入参数</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">public enum CalculationType &#123;</span><br><span class="line">	</span><br><span class="line">	E_AddITION(1,&quot;addition&quot;),</span><br><span class="line">	E_SUBTRACTION(2,&quot;subtraction&quot;);</span><br><span class="line"></span><br><span class="line">	private Integer value;</span><br><span class="line"></span><br><span class="line">	private String description;</span><br><span class="line">	</span><br><span class="line">	public int value() &#123;</span><br><span class="line">		return value;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	public String description() &#123;</span><br><span class="line">		return description;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	private CalculationType(Integer value,String description) &#123;</span><br><span class="line">		this.value = value;</span><br><span class="line">		this.description = description;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="枚举类的一些方法"><a href="#枚举类的一些方法" class="headerlink" title="枚举类的一些方法"></a>枚举类的一些方法</h2><p>举个栗子 可以进行遍历，方式两种</p>
-<p><img src="/2019/12/11/枚举类/1.png" alt="BP"></p>
-<h2 id="使用枚举的好处-自己解析了一下优秀选手的"><a href="#使用枚举的好处-自己解析了一下优秀选手的" class="headerlink" title="使用枚举的好处 自己解析了一下优秀选手的"></a>使用枚举的好处 自己解析了一下优秀选手的</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * 感觉很麻烦，有什么好处(我太难了)</span><br><span class="line"> * </span><br><span class="line"> * 常量和枚举的区别(https://my.oschina.net/dyyweb/blog/617493#comments)</span><br><span class="line"> * </span><br><span class="line"> * 1) 私有构造函数,避免被继承和扩展.</span><br><span class="line"> * 	   </span><br><span class="line"> * 	   这个很好理解,避免下面人乱搞,私有化构造器也能解决</span><br><span class="line"> * </span><br><span class="line"> * 2) 定义方法的参数时,必须用枚举常量类类型,如上面的EnumClassA类型,这样就转变成了强类型,不会出现弱类型引起的问题.</span><br><span class="line"> *    </span><br><span class="line"> *    难道java不是强类型语言吗(强人所难),难道说的是调用Enum常量前必须指定常量类类型??? 还是跟编译时类型和运行时类型有关，这不是多态吗。</span><br><span class="line"> *    </span><br><span class="line"> * 3) 常量值地址唯一,可以用==直接对比,性能会有提高.</span><br><span class="line"> *    </span><br><span class="line"> *    源码中:</span><br><span class="line"> *     public final boolean equals(Object other) &#123;</span><br><span class="line"> *     		  return this==other;</span><br><span class="line"> *     &#125;</span><br><span class="line"> *    </span><br><span class="line"> * 4) 编译时,没有把常量值编译到代码里,即使常量的值发生变化也不会影响引用常量的类.</span><br><span class="line"> *      </span><br><span class="line"> *    常量类 编译时,是直接把常量的值编译到类的二进制代码里,常量的值在升级中变化后,需要重新编译所有引用常量的类,因为里面存的是旧值.</span><br><span class="line"> */</span><br></pre></td></tr></table></figure>
-
-
+        <h1 id="枚举类"><a href="#枚举类" class="headerlink" title="枚举类"></a>枚举类</h1>
+        
+          <a class="article-more-a" href="/2019/12/11/枚举类/#more">more >></a>
+        
       
 
       
@@ -337,13 +327,10 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="策略模式"><a href="#策略模式" class="headerlink" title="策略模式"></a>策略模式</h1><p>这两天写流程判断时用到很多if else 巨丑，百度之后发现可以用单例模式+简单工厂模式+注解+反射，任重而道远 先来试试策略模式</p>
-<h1 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h1><p>古有行兵36计，今有爱情36计，策略从来都不是只有一种的，追不同的人加载不同的策略去追才能成功。这就是策略模式。比如当年的游戏掌机只有俄罗斯方块那种。很快人们就玩腻了，但后来任天堂就推出了可以换卡的掌机，一个掌机可以加载不同的游戏，不同的游戏就等同于加载不同的策略。</p>
-<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><h3 id="1-制作一个计算器"><a href="#1-制作一个计算器" class="headerlink" title="1.制作一个计算器"></a>1.制作一个计算器</h3><h3 id="2-定义策略Strategy接口，定义算法标准"><a href="#2-定义策略Strategy接口，定义算法标准" class="headerlink" title="2.定义策略Strategy接口，定义算法标准"></a>2.定义策略Strategy接口，定义算法标准</h3><p><img src="/2019/12/10/策略模式/1.png" alt="BP"></p>
-<h3 id="3-创建不同的策略-如-相加-或-相减-实现Strategy接口-并实现方法"><a href="#3-创建不同的策略-如-相加-或-相减-实现Strategy接口-并实现方法" class="headerlink" title="3.创建不同的策略 如 相加 或 相减 实现Strategy接口,并实现方法"></a>3.创建不同的策略 如 相加 或 相减 实现Strategy接口,并实现方法</h3><p><img src="/2019/12/10/策略模式/2.png" alt="BP"></p>
-<h3 id="4-创建计算器类"><a href="#4-创建计算器类" class="headerlink" title="4.创建计算器类"></a>4.创建计算器类</h3><p><img src="/2019/12/10/策略模式/3.png" alt="BP"></p>
-<h3 id="5-验证"><a href="#5-验证" class="headerlink" title="5.验证"></a>5.验证</h3><p><img src="/2019/12/10/策略模式/4.png" alt="BP"></p>
-
+        <h1 id="策略模式"><a href="#策略模式" class="headerlink" title="策略模式"></a>策略模式</h1>
+        
+          <a class="article-more-a" href="/2019/12/10/策略模式/#more">more >></a>
+        
       
 
       
