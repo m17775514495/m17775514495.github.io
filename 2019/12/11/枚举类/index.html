@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://m17775514495.github.io">
   <title>枚举类 | 达文心</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="枚举类">
+  <meta name="description" content="枚举类目的为了优化if else，所以使用枚举+工厂+策略模式，暂时先不考虑注解。枚举学过，但一直用静态常量代替，其实并没有怎么使用过。这里来写一写代码熟悉一下">
 <meta property="og:type" content="article">
 <meta property="og:title" content="枚举类">
 <meta property="og:url" content="http://m17775514495.github.io/2019/12/11/枚举类/index.html">
 <meta property="og:site_name" content="达文心">
-<meta property="og:description" content="枚举类">
+<meta property="og:description" content="枚举类目的为了优化if else，所以使用枚举+工厂+策略模式，暂时先不考虑注解。枚举学过，但一直用静态常量代替，其实并没有怎么使用过。这里来写一写代码熟悉一下">
 <meta property="og:locale" content="Chinese">
 <meta property="og:image" content="http://m17775514495.github.io/2019/12/11/枚举类/1.png">
-<meta property="og:updated_time" content="2019-12-11T07:25:00.723Z">
+<meta property="og:updated_time" content="2020-01-15T01:48:04.419Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="枚举类">
-<meta name="twitter:description" content="枚举类">
+<meta name="twitter:description" content="枚举类目的为了优化if else，所以使用枚举+工厂+策略模式，暂时先不考虑注解。枚举学过，但一直用静态常量代替，其实并没有怎么使用过。这里来写一写代码熟悉一下">
 <meta name="twitter:image" content="http://m17775514495.github.io/2019/12/11/枚举类/1.png">
   
     <link rel="alternative" href="/atom.xml" title="达文心" type="application/atom+xml">
@@ -176,8 +176,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="枚举类"><a href="#枚举类" class="headerlink" title="枚举类"></a>枚举类</h1><a id="more"></a>
-<h2 id="目的"><a href="#目的" class="headerlink" title="目的"></a>目的</h2><p>为了优化if else，所以使用枚举+工厂+策略模式，暂时先不考虑注解。枚举学过，但一直用静态常量代替，其实并没有怎么使用过。这里来写一写代码熟悉一下</p>
+        <h1 id="枚举类"><a href="#枚举类" class="headerlink" title="枚举类"></a>枚举类</h1><h2 id="目的"><a href="#目的" class="headerlink" title="目的"></a>目的</h2><p>为了优化if else，所以使用枚举+工厂+策略模式，暂时先不考虑注解。枚举学过，但一直用静态常量代替，其实并没有怎么使用过。这里来写一写代码熟悉一下</p>
+<a id="more"></a>
 <h2 id="核心语法"><a href="#核心语法" class="headerlink" title="核心语法"></a>核心语法</h2><p>用enum修饰类，声明的枚举常量要在第一行，可以实现接口，不能继承另一个枚举类</p>
 <h2 id="创建枚举-并加入参数"><a href="#创建枚举-并加入参数" class="headerlink" title="创建枚举 并加入参数"></a>创建枚举 并加入参数</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">public enum CalculationType &#123;</span><br><span class="line">	</span><br><span class="line">	E_AddITION(1,&quot;addition&quot;),</span><br><span class="line">	E_SUBTRACTION(2,&quot;subtraction&quot;);</span><br><span class="line"></span><br><span class="line">	private Integer value;</span><br><span class="line"></span><br><span class="line">	private String description;</span><br><span class="line">	</span><br><span class="line">	public int value() &#123;</span><br><span class="line">		return value;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	public String description() &#123;</span><br><span class="line">		return description;</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	private CalculationType(Integer value,String description) &#123;</span><br><span class="line">		this.value = value;</span><br><span class="line">		this.description = description;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
