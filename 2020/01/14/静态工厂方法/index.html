@@ -6,18 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://m17775514495.github.io">
-  <title>Archives: 2019/11 | 达文心</title>
+  <title>静态工厂方法 | 达文心</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="秃头才能变强">
-<meta property="og:type" content="website">
-<meta property="og:title" content="达文心">
-<meta property="og:url" content="http://m17775514495.github.io/archives/2019/11/index.html">
+  <meta name="description" content="静态工厂方法最近在看effective Java这本书，毕竟Java四大名著这么著名的还是要看一看的，但是刚开始读的时候感觉很不友好，总是在每一条中引用其它条的言论来佐证，看着很累(果然基础还是太差了)，后面就直接先看着走，不用太过注重引用的讲了什么。记录一下我觉得一些能让我代码变得优美的点 构造函数其实以前我并没有使用很多的带参构造函数，很惭愧，每次都是直接lombok.Data就完事了，需要的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="静态工厂方法">
+<meta property="og:url" content="http://m17775514495.github.io/2020/01/14/静态工厂方法/index.html">
 <meta property="og:site_name" content="达文心">
-<meta property="og:description" content="秃头才能变强">
+<meta property="og:description" content="静态工厂方法最近在看effective Java这本书，毕竟Java四大名著这么著名的还是要看一看的，但是刚开始读的时候感觉很不友好，总是在每一条中引用其它条的言论来佐证，看着很累(果然基础还是太差了)，后面就直接先看着走，不用太过注重引用的讲了什么。记录一下我觉得一些能让我代码变得优美的点 构造函数其实以前我并没有使用很多的带参构造函数，很惭愧，每次都是直接lombok.Data就完事了，需要的">
 <meta property="og:locale" content="Chinese">
+<meta property="og:updated_time" content="2020-01-15T01:45:57.707Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="达文心">
-<meta name="twitter:description" content="秃头才能变强">
+<meta name="twitter:title" content="静态工厂方法">
+<meta name="twitter:description" content="静态工厂方法最近在看effective Java这本书，毕竟Java四大名著这么著名的还是要看一看的，但是刚开始读的时候感觉很不友好，总是在每一条中引用其它条的言论来佐证，看着很累(果然基础还是太差了)，后面就直接先看着走，不用太过注重引用的讲了什么。记录一下我觉得一些能让我代码变得优美的点 构造函数其实以前我并没有使用很多的带参构造函数，很惭愧，每次都是直接lombok.Data就完事了，需要的">
   
     <link rel="alternative" href="/atom.xml" title="达文心" type="application/atom+xml">
   
@@ -153,49 +154,189 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-静态工厂方法" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/11/19/十大经典算法/" class="archive-article-date">
-  	<time datetime="2019-11-19T08:17:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-11-19</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/11/19/十大经典算法/">十大经典算法</a>
+    <h1 class="article-title" itemprop="name">
+      静态工厂方法
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
+        
+        <a href="/2020/01/14/静态工厂方法/" class="archive-article-date">
+  	<time datetime="2020-01-14T11:41:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-14</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="静态工厂方法"><a href="#静态工厂方法" class="headerlink" title="静态工厂方法"></a>静态工厂方法</h2><p>最近在看effective Java这本书，毕竟Java四大名著这么著名的还是要看一看的，但是刚开始读的时候感觉很不友好，总是在每一条中引用其它条的言论来佐证，看着很累(果然基础还是太差了)，后面就直接先看着走，不用太过注重引用的讲了什么。记录一下我觉得一些能让我代码变得优美的点</p>
+<h2 id="构造函数"><a href="#构造函数" class="headerlink" title="构造函数"></a>构造函数</h2><p>其实以前我并没有使用很多的带参构造函数，很惭愧，每次都是直接lombok.Data就完事了，需要的话直接get set。没想到模型类中还有如此多的操作，构造函数的使用，静态工厂方法，还有第二条的构建者模式解决了javaBean模式的不安全问题，又开了眼界</p>
+<h2 id="构造函数-1"><a href="#构造函数-1" class="headerlink" title="构造函数"></a>构造函数</h2><p>类中自带一个与类重名的无参构造函数，可以重载构造函数，传参进行生成带不同属性的对象，但是这样必须遵守重载的规范。参数顺序，类型至少有一个不一样，所以参数过多其实是有一定的限制的。而且不是太好调用。所以有了静态工厂方法，虽然属性过多也有一定的限制，但取名上的优势是重叠构造无法替代的。</p>
+<h2 id="静态工厂方法-1"><a href="#静态工厂方法-1" class="headerlink" title="静态工厂方法"></a>静态工厂方法</h2><p>一个person类，可以取不同的方法名称进行区分</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">public static Person getAgeAndName(Integer age,String name) &#123;</span><br><span class="line">		Person person = new Person();</span><br><span class="line">		person.age = 18;</span><br><span class="line">		person.name = &quot;达文心&quot;;</span><br><span class="line">		return person;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
 
+<h2 id="单例版的静态工厂方法"><a href="#单例版的静态工厂方法" class="headerlink" title="单例版的静态工厂方法"></a>单例版的静态工厂方法</h2><p>有时候创建对象是很耗费资源的，项目中如果为了修改数据库中某个表中某个字段的状态，但是在mapper中传参又是整个对象的话每次设置状态就很麻烦，那就可以这么做</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">private static OrderDO instance;</span><br><span class="line"></span><br><span class="line">	public OrderDO()&#123;&#125;</span><br><span class="line"></span><br><span class="line">	public static OrderDO getInstance()&#123;</span><br><span class="line">		if (instance == null)&#123;</span><br><span class="line">			synchronized (OrderDO.class)&#123;</span><br><span class="line">				if (instance == null)&#123;</span><br><span class="line">					instance = new OrderDO();</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		return instance;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public static OrderDO getInstanceProduction()&#123;</span><br><span class="line">		getInstance().setStatus(AppOrderConstruction.STATUS_PRODUCTION);</span><br><span class="line">		getInstance().setRunStatus(AppOrderConstruction.RUN_STATUS_PRODUCTION);</span><br><span class="line">		return instance;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	public static OrderDO getInstanceWaiting()&#123;</span><br><span class="line">		getInstance().setStatus(AppOrderConstruction.STATUS_WAITING);</span><br><span class="line">		getInstance().setRunStatus(AppOrderConstruction.RUN_STATUS_WAITING);</span><br><span class="line">	    return instance;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+
+<p>让代码更好看一些</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/设计模式//" class="article-tag-list-link color5">设计模式</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://m17775514495.github.io/2020/01/14/静态工厂方法/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2019/12/11/工厂模式-策略模式-枚举类三合一/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">工厂模式+策略模式+枚举类三合一</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#静态工厂方法"><span class="toc-number">1.</span> <span class="toc-text">静态工厂方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#构造函数"><span class="toc-number">2.</span> <span class="toc-text">构造函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#构造函数-1"><span class="toc-number">3.</span> <span class="toc-text">构造函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#静态工厂方法-1"><span class="toc-number">4.</span> <span class="toc-text">静态工厂方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#单例版的静态工厂方法"><span class="toc-number">5.</span> <span class="toc-text">单例版的静态工厂方法</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -218,8 +359,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

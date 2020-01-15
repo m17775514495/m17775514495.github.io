@@ -155,6 +155,89 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-静态工厂方法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/01/14/静态工厂方法/">静态工厂方法</a>
+    </h1>
+  
+
+        
+        <a href="/2020/01/14/静态工厂方法/" class="archive-article-date">
+  	<time datetime="2020-01-14T11:41:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-14</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="静态工厂方法"><a href="#静态工厂方法" class="headerlink" title="静态工厂方法"></a>静态工厂方法</h2><p>最近在看effective Java这本书，毕竟Java四大名著这么著名的还是要看一看的，但是刚开始读的时候感觉很不友好，总是在每一条中引用其它条的言论来佐证，看着很累(果然基础还是太差了)，后面就直接先看着走，不用太过注重引用的讲了什么。记录一下我觉得一些能让我代码变得优美的点</p>
+<h2 id="构造函数"><a href="#构造函数" class="headerlink" title="构造函数"></a>构造函数</h2><p>其实以前我并没有使用很多的带参构造函数，很惭愧，每次都是直接lombok.Data就完事了，需要的话直接get set。没想到模型类中还有如此多的操作，构造函数的使用，静态工厂方法，还有第二条的构建者模式解决了javaBean模式的不安全问题，又开了眼界</p>
+<h2 id="构造函数-1"><a href="#构造函数-1" class="headerlink" title="构造函数"></a>构造函数</h2><p>类中自带一个与类重名的无参构造函数，可以重载构造函数，传参进行生成带不同属性的对象，但是这样必须遵守重载的规范。参数顺序，类型至少有一个不一样，所以参数过多其实是有一定的限制的。而且不是太好调用。所以有了静态工厂方法，虽然属性过多也有一定的限制，但取名上的优势是重叠构造无法替代的。</p>
+<h2 id="静态工厂方法-1"><a href="#静态工厂方法-1" class="headerlink" title="静态工厂方法"></a>静态工厂方法</h2><p>一个person类，可以取不同的方法名称进行区分</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">public static Person getAgeAndName(Integer age,String name) &#123;</span><br><span class="line">		Person person = new Person();</span><br><span class="line">		person.age = 18;</span><br><span class="line">		person.name = &quot;达文心&quot;;</span><br><span class="line">		return person;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="单例版的静态工厂方法"><a href="#单例版的静态工厂方法" class="headerlink" title="单例版的静态工厂方法"></a>单例版的静态工厂方法</h2><p>有时候创建对象是很耗费资源的，项目中如果为了修改数据库中某个表中某个字段的状态，但是在mapper中传参又是整个对象的话每次设置状态就很麻烦，那就可以这么做</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">private static OrderDO instance;</span><br><span class="line"></span><br><span class="line">	public OrderDO()&#123;&#125;</span><br><span class="line"></span><br><span class="line">	public static OrderDO getInstance()&#123;</span><br><span class="line">		if (instance == null)&#123;</span><br><span class="line">			synchronized (OrderDO.class)&#123;</span><br><span class="line">				if (instance == null)&#123;</span><br><span class="line">					instance = new OrderDO();</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		return instance;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	public static OrderDO getInstanceProduction()&#123;</span><br><span class="line">		getInstance().setStatus(AppOrderConstruction.STATUS_PRODUCTION);</span><br><span class="line">		getInstance().setRunStatus(AppOrderConstruction.RUN_STATUS_PRODUCTION);</span><br><span class="line">		return instance;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	public static OrderDO getInstanceWaiting()&#123;</span><br><span class="line">		getInstance().setStatus(AppOrderConstruction.STATUS_WAITING);</span><br><span class="line">		getInstance().setRunStatus(AppOrderConstruction.RUN_STATUS_WAITING);</span><br><span class="line">	    return instance;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+
+<p>让代码更好看一些</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/设计模式//" class="article-tag-list-link color5">设计模式</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/01/14/静态工厂方法/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="w-工厂模式-策略模式-枚举类三合一" class="article article-type-w  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -775,82 +858,6 @@
 
 
   
-    <article id="post-秃头之springCloud-七-服务的监控" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/08/22/秃头之springCloud-七-服务的监控/">秃头之springCloud-七-服务的监控</a>
-    </h1>
-  
-
-        
-        <a href="/2019/08/22/秃头之springCloud-七-服务的监控/" class="archive-article-date">
-  	<time datetime="2019-08-22T09:29:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-22</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="为了解决微服务过多的问题"><a href="#为了解决微服务过多的问题" class="headerlink" title="为了解决微服务过多的问题"></a>为了解决微服务过多的问题</h2><p>监控每一个微服务的运行状态和针对微服务进行优化</p>
-        
-          <a class="article-more-a" href="/2019/08/22/秃头之springCloud-七-服务的监控/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/springCloud//" class="article-tag-list-link color2">springCloud</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/08/22/秃头之springCloud-七-服务的监控/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
       <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
@@ -865,7 +872,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2019 文鑫
+    		&copy; 2020 文鑫
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
