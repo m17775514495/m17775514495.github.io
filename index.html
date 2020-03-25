@@ -155,6 +155,327 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-希尔排序" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/03/25/希尔排序/">希尔排序</a>
+    </h1>
+  
+
+        
+        <a href="/2020/03/25/希尔排序/" class="archive-article-date">
+  	<time datetime="2020-03-25T08:05:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-25</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="时间复杂度-O-NlogN-，"><a href="#时间复杂度-O-NlogN-，" class="headerlink" title="时间复杂度: O(NlogN)，"></a>时间复杂度: O(NlogN)，</h3><h3 id="原理-希尔排序是把序列按一定间隔分组，对每组使用直接插入排序；随着间隔减小，一直到1，算法终止"><a href="#原理-希尔排序是把序列按一定间隔分组，对每组使用直接插入排序；随着间隔减小，一直到1，算法终止" class="headerlink" title="原理: 希尔排序是把序列按一定间隔分组，对每组使用直接插入排序；随着间隔减小，一直到1，算法终止"></a>原理: 希尔排序是把序列按一定间隔分组，对每组使用直接插入排序；随着间隔减小，一直到1，算法终止</h3><h3 id="思路解析-从小到大排序"><a href="#思路解析-从小到大排序" class="headerlink" title="思路解析(从小到大排序):"></a>思路解析(从小到大排序):</h3><p>初始数组：<br><img src="/2020/03/25/希尔排序/1.png" alt="BP"></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/数据结构与算法//" class="article-tag-list-link color3">数据结构与算法</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/03/25/希尔排序/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-“插入排序" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/03/24/“插入排序/">“插入排序</a>
+    </h1>
+  
+
+        
+        <a href="/2020/03/24/“插入排序/" class="archive-article-date">
+  	<time datetime="2020-03-24T11:41:39.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-24</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="时间复杂度-O-n-2"><a href="#时间复杂度-O-n-2" class="headerlink" title="时间复杂度: O(n^2)"></a>时间复杂度: O(n^2)</h3><h3 id="原理-将无序区的元素依次插入到有序区"><a href="#原理-将无序区的元素依次插入到有序区" class="headerlink" title="原理: 将无序区的元素依次插入到有序区"></a>原理: 将无序区的元素依次插入到有序区</h3><h3 id="思路解析-从小到大排序"><a href="#思路解析-从小到大排序" class="headerlink" title="思路解析(从小到大排序):"></a>思路解析(从小到大排序):</h3><p>初始数组:<strong>101</strong>,34,119,1<br>第一轮排序:<br>&nbsp;&nbsp;&nbsp;&nbsp;设定第一个元素(101)为有序区<br>&nbsp;&nbsp;&nbsp;&nbsp;记录无序区第一个元素34，将34与101进行比较<br>&nbsp;&nbsp;&nbsp;&nbsp;34小于101，将101元素后移即覆盖元素为34位置的数 101,101,119,1<br>&nbsp;&nbsp;&nbsp;&nbsp;将34放在101，数组现为<strong>34,101</strong>,119,1</p>
+<p>第二轮排序:<br>&nbsp;&nbsp;&nbsp;&nbsp;记录无序区第一个元素119，将119与101进行比较<br>&nbsp;&nbsp;&nbsp;&nbsp;119 &gt; 101，数组现为<strong>34,101,119</strong>,1</p>
+<p>第三轮排序:<br>&nbsp;&nbsp;&nbsp;&nbsp;记录无序区第一个元素1，将1与119进行比较<br>&nbsp;&nbsp;&nbsp;&nbsp;1小于119，将119元素后移即覆盖元素为1位置的数 <strong>34,101,119</strong>,119<br>&nbsp;&nbsp;&nbsp;&nbsp;将1与101进行比较，小于则将101后移覆盖<br> <strong>34,101,101</strong>,119<br>&nbsp;&nbsp;&nbsp;&nbsp;将1与34进行比较，小于则将34后移覆盖<br> <strong>34,34,101</strong>,119<br>&nbsp;&nbsp;&nbsp;&nbsp;34前方无元素，则将1插入34的位置</p>
+<p>总结:<br>1.从下标为1开始轮数<br>2.每次记录无序区的第一个元素，并与有序区依次进行比较</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">public class InsertSort &#123;</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		//int[] arr = &#123;101,34,119,1&#125;;</span><br><span class="line">		</span><br><span class="line">		int[] array = new int[80000];</span><br><span class="line">		for (int i = 0; i &lt; array.length; i++) &#123;</span><br><span class="line">			array[i] = (int)(Math.random() * 80000);</span><br><span class="line">		&#125;</span><br><span class="line">		SimpleDateFormat sdf = new SimpleDateFormat(&quot;yyyy-MM-dd hh:mm:ss&quot;);</span><br><span class="line">		Date date1 = new Date();</span><br><span class="line">		System.out.println(&quot;排序前时间:&quot; + sdf.format(date1));</span><br><span class="line">		</span><br><span class="line">		insertSort(array);</span><br><span class="line">		</span><br><span class="line">		Date date2 = new Date();</span><br><span class="line">		System.out.println(&quot;排序后时间:&quot; + sdf.format(date2));</span><br><span class="line">		//System.out.println(Arrays.toString(arr));</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	private static void insertSort(int[] arr) &#123;</span><br><span class="line">		</span><br><span class="line">		for (int i = 1; i &lt; arr.length; i++) &#123;</span><br><span class="line">			//无序区第一位元素</span><br><span class="line">			int insertVal = arr[i];</span><br><span class="line">			//有序区最后一位下标</span><br><span class="line">			int lastIndex = i-1;</span><br><span class="line">			//当前有序区的元素大于无序区的元素时</span><br><span class="line">			while(lastIndex &gt;= 0 &amp;&amp; arr[lastIndex] &gt; insertVal) &#123;</span><br><span class="line">				//当前无序区元素覆盖当前元素下标加1的位置</span><br><span class="line">				//例如101 34 119 1 =&gt; 101 101 119 1</span><br><span class="line">				arr[lastIndex+1] = arr[lastIndex];</span><br><span class="line">				//下标前移</span><br><span class="line">				lastIndex--;</span><br><span class="line">			&#125;</span><br><span class="line">			//找到位置</span><br><span class="line">			if (lastIndex != i-1) &#123;</span><br><span class="line">				arr[lastIndex + 1] = insertVal;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>运行结果为:3秒左右(该结果只是为了比较各排序算法间时间复杂度的不同，比冒泡快)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">排序前时间:08:54:04</span><br><span class="line">排序后时间:08:54:07</span><br></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/数据结构与算法//" class="article-tag-list-link color3">数据结构与算法</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/03/24/“插入排序/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="w-选择排序" class="article article-type-w  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/03/24/选择排序/">选择排序</a>
+    </h1>
+  
+
+        
+        <a href="/2020/03/24/选择排序/" class="archive-article-date">
+  	<time datetime="2020-03-24T10:58:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-24</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="时间复杂度-O-n-2"><a href="#时间复杂度-O-n-2" class="headerlink" title="时间复杂度: O(n^2)"></a>时间复杂度: O(n^2)</h3><h3 id="原理-确定每一轮的假定最小元素，与无序区元素逐一进行比较，找出最小元素与假定最小元素进行位置交换"><a href="#原理-确定每一轮的假定最小元素，与无序区元素逐一进行比较，找出最小元素与假定最小元素进行位置交换" class="headerlink" title="原理: 确定每一轮的假定最小元素，与无序区元素逐一进行比较，找出最小元素与假定最小元素进行位置交换"></a>原理: 确定每一轮的假定最小元素，与无序区元素逐一进行比较，找出最小元素与假定最小元素进行位置交换</h3><h3 id="思路解析-从小到大排序"><a href="#思路解析-从小到大排序" class="headerlink" title="思路解析(从小到大排序):"></a>思路解析(从小到大排序):</h3><p>初始数组:101,34,119,1<br>第一轮排序: <strong>1</strong>,34,119,101  //假定最小元素为101 与1进行交换<br>第二轮排序: <strong>1</strong>,<strong>34</strong>,119,101  //假定最小元素为34不进行交换<br>第三轮排序: <strong>1</strong>,<strong>34</strong>,<strong>101</strong>,119  //假定最小元素为109 与101进行交换</p>
+<p>思路总结:<br>轮数总数 = 数组长度 - 1<br>每轮交换规则<br>1.假定当前轮元素为最小数<br>2.与后面的无序区元素进行比较<br>3.记录最小下标<br>4.将最小值与当前轮数元素进行交换</p>
+<p>优化：如当前轮数元素为最小元素，则不进行交换</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">public class SelectSort &#123;</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		//int array[] = &#123;101,34,119,1&#125;;</span><br><span class="line">		</span><br><span class="line">		int[] array = new int[80000];</span><br><span class="line">		for (int i = 0; i &lt; array.length; i++) &#123;</span><br><span class="line">			array[i] = (int)(Math.random() * 80000);</span><br><span class="line">		&#125;</span><br><span class="line">		SimpleDateFormat sdf = new SimpleDateFormat(&quot;yyyy-MM-dd hh:mm:ss&quot;);</span><br><span class="line">		Date date1 = new Date();</span><br><span class="line">		System.out.println(&quot;排序前时间:&quot; + sdf.format(date1));</span><br><span class="line">		</span><br><span class="line">		selectSort(array);</span><br><span class="line">		</span><br><span class="line">		Date date2 = new Date();</span><br><span class="line">		System.out.println(&quot;排序后时间:&quot; + sdf.format(date2));</span><br><span class="line">		//System.out.println(Arrays.toString(array));</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	public static void selectSort(int[] array) &#123;</span><br><span class="line">		</span><br><span class="line">		for (int i = 0; i &lt; array.length - 1; i++) &#123;</span><br><span class="line">			//假定当前元素为最小值</span><br><span class="line">			int min = array[i];</span><br><span class="line">			//假定当前元素为最小下标</span><br><span class="line">			int minIndex = i; </span><br><span class="line">			for (int j = i+1; j &lt; array.length; j++) &#123;</span><br><span class="line">				if (min &gt; array[j]) &#123;</span><br><span class="line">					//记录最小下标</span><br><span class="line">					minIndex = j;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">			//当前元素与最小元素交换位置</span><br><span class="line">			//如果当前元素就是最小值则不需交换</span><br><span class="line">			if (minIndex != i) &#123;</span><br><span class="line">				int temp = array[minIndex];</span><br><span class="line">				array[minIndex] = array[i];</span><br><span class="line">				array[i] = temp; </span><br><span class="line">			&#125;</span><br><span class="line">			</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>运行结果为:2秒左右(该结果只是为了比较各排序算法间时间复杂度的不同，比冒泡快)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">排序前时间:2020-03-24 06:41:44</span><br><span class="line">排序后时间:2020-03-24 06:41:46</span><br></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/数据结构与算法//" class="article-tag-list-link color3">数据结构与算法</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/03/24/选择排序/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-jdk8-Optional" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/03/16/jdk8-Optional/">jdk8_Optional</a>
+    </h1>
+  
+
+        
+        <a href="/2020/03/16/jdk8-Optional/" class="archive-article-date">
+  	<time datetime="2020-03-16T07:02:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-16</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Optional是Java 8 引进的新特性，主要是为了解决空指针异常(NullPointerException)；链式调用的方式在业务中也可以有效的避免if-else的出现。虽然可读性差了点，但只是还没彻底熟悉而已。Optional大量使用了函数式接口顺便把lambda表达式也熟悉了。我觉得最重要的是在熟悉Optional的过程中，必须时常去看源码，不管是看函数式接口是消费者，还是生产者。还是观察Optional具体方法的使用方式。还是泛型的使用，可以学学用在平常代码中，我觉得这个习惯应该保持。</p>
+<h2 id="Optional类"><a href="#Optional类" class="headerlink" title="Optional类"></a>Optional类</h2><p>optional的构造器是私有的，所以不能直接new</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">private Optional() &#123;</span><br><span class="line">        this.value = null;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p>简单的说几个方法的使用，这个直接看api就可以<br>Optional<string> optional = Optional.of(“达文心”) 返回当前传入值的<br>Optional.ofNullable</string></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"> public static &lt;T&gt; Optional&lt;T&gt; ofNullable(T value) &#123;</span><br><span class="line">        return value == null ? empty() : of(value);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">当传入值不等于null时存入原值	</span><br><span class="line">public static &lt;T&gt; Optional&lt;T&gt; of(T value) &#123;</span><br><span class="line">        return new Optional&lt;&gt;(value);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">等于空时返回一个final Optional</span><br></pre></td></tr></table></figure>
+
+<p> optional.orElse(“wx”); 如果一个optional中为空，则放入新传入值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">optional.ifPresent((String t) -&gt;&#123;</span><br><span class="line">			//隐式的非null判断</span><br><span class="line">			System.out.println(t);</span><br><span class="line">		&#125;);</span><br><span class="line"></span><br><span class="line">//有一个无返回值的消费型的函数式接口，当值不等于null时，才去消费</span><br><span class="line">public void ifPresent(Consumer&lt;? super T&gt; consumer) &#123;</span><br><span class="line">        if (value != null)</span><br><span class="line">            consumer.accept(value);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p> optional.map()</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">//参数是一个有返回值的函数式接口</span><br><span class="line">Optional&lt;String&gt; optional2 =  optional.map((String t) -&gt;&#123;</span><br><span class="line">//返回值修改为&quot;达文心&quot;			</span><br><span class="line">			return &quot;达文心&quot;;</span><br><span class="line">		&#125;);</span><br><span class="line">//get()获取optional中的值	    </span><br><span class="line">		System.out.println(optional2.get());</span><br><span class="line"></span><br><span class="line">//判断修改后或未修改值是否为null</span><br><span class="line"></span><br><span class="line">public&lt;U&gt; Optional&lt;U&gt; map(Function&lt;? super T, ? extends U&gt; mapper) &#123;</span><br><span class="line">        Objects.requireNonNull(mapper);</span><br><span class="line">        if (!isPresent())</span><br><span class="line">            return empty();</span><br><span class="line">        else &#123;</span><br><span class="line">            return Optional.ofNullable(mapper.apply(value));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="页面跳转举例"><a href="#页面跳转举例" class="headerlink" title="页面跳转举例"></a>页面跳转举例</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">//链式调用 filter过滤，保留&quot;达文心&quot;,返回 Optional</span><br><span class="line">String result = optional.filter((String t) -&gt;&#123;</span><br><span class="line">		   </span><br><span class="line">		return t.equals(&quot;达文心&quot;);</span><br><span class="line">		//不为返回具体地址字符串</span><br><span class="line">	   &#125;).map((String t) -&gt;&#123;</span><br><span class="line">		   </span><br><span class="line">		   return &quot;main&quot;;</span><br><span class="line">	    //为空 存入另一值，并返回</span><br><span class="line">	   &#125;).orElseGet(() -&gt;&#123;</span><br><span class="line">		   </span><br><span class="line">		   return &quot;login&quot;;</span><br><span class="line">	   &#125;);</span><br><span class="line">	   </span><br><span class="line">	   System.out.println(result);</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/规范代码//" class="article-tag-list-link color5">规范代码</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/03/16/jdk8-Optional/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-try-with-resources" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -542,7 +863,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2019/11/19/十大经典算法/">十大经典算法</a>
+      <a class="article-title" href="/2019/11/19/十大经典算法/">冒泡排序</a>
     </h1>
   
 
@@ -555,7 +876,15 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h3 id="时间复杂度-冒泡排序时间复杂度为O-n-2"><a href="#时间复杂度-冒泡排序时间复杂度为O-n-2" class="headerlink" title="时间复杂度: 冒泡排序时间复杂度为O(n^2)"></a>时间复杂度: 冒泡排序时间复杂度为O(n^2)</h3><h3 id="原理-比较两个相邻的元素，元素大小逆序则交换"><a href="#原理-比较两个相邻的元素，元素大小逆序则交换" class="headerlink" title="原理: 比较两个相邻的元素，元素大小逆序则交换"></a>原理: 比较两个相邻的元素，元素大小逆序则交换</h3><h3 id="思路解析-从小到大排序"><a href="#思路解析-从小到大排序" class="headerlink" title="思路解析(从小到大排序):"></a>思路解析(从小到大排序):</h3><p>  排序数组为:int arr[] = {3,9,-1,10,-2};<br>第一轮排序：<br>&nbsp;&nbsp;&nbsp;&nbsp;(1) 3,9,-1,10,-2<br>&nbsp;&nbsp;&nbsp;&nbsp;(2) 3,-1,9,10,-2<br>&nbsp;&nbsp;&nbsp;&nbsp;(3) 3,-1,9,10,-2<br>&nbsp;&nbsp;&nbsp;&nbsp;(4) 3,-1,9,-2,<strong>10</strong><br>&emsp;<br>第二轮排序：<br>&nbsp;&nbsp;&nbsp;&nbsp;(1) -1,3,9,-2,10<br>&nbsp;&nbsp;&nbsp;&nbsp;(2) -1,3,9,-2,10<br>&nbsp;&nbsp;&nbsp;&nbsp;(3) -1,3,-2,<strong>9</strong>,10</p>
+<p>第三轮排序：<br>&nbsp;&nbsp;&nbsp;&nbsp;(1) -1,3,-2,9,10<br>&nbsp;&nbsp;&nbsp;&nbsp;(2) -1,-2,<strong>3</strong>,9,10</p>
+<p>第四轮排序：<br>&nbsp;&nbsp;&nbsp;&nbsp;(1) -2,<strong>-1</strong>,3,9,10</p>
+<p>思路总结:<br>轮数总数 = 数组长度 - 1<br>每轮交换次数 = 数组长度 - 该轮次数</p>
+<p>优化:如果我们在某轮排序中，没有发生一次交换，可以提前结束冒泡排序</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">public class BubbleSort &#123;</span><br><span class="line">	public static void main(String[] args) &#123;		</span><br><span class="line">		//int arr[] = &#123;3,9,-1,10,-2&#125;;</span><br><span class="line">		//排序80000次所需时间</span><br><span class="line">		int[] arr = new int[80000];</span><br><span class="line">		for (int i = 0; i &lt; arr.length; i++) &#123;</span><br><span class="line">			arr[i] = (int)(Math.random() * 80000);</span><br><span class="line">		&#125;</span><br><span class="line">		SimpleDateFormat sdf = new SimpleDateFormat(&quot;yyyy-MM-dd hh:mm:ss&quot;);</span><br><span class="line">		Date date1 = new Date();</span><br><span class="line">		System.out.println(&quot;排序前时间:&quot; + sdf.format(date1));</span><br><span class="line">		</span><br><span class="line">		sort(arr);</span><br><span class="line">		</span><br><span class="line">		Date date2 = new Date();</span><br><span class="line">		System.out.println(&quot;排序后时间:&quot; + sdf.format(date2));</span><br><span class="line">		//System.out.println(Arrays.toString(arr));</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">	public static void  sort(int[] arr)&#123;</span><br><span class="line">		int temp;</span><br><span class="line">		//当一趟排序中元素位置没有发生变化，可提前结束排序</span><br><span class="line">		boolean flag = false;</span><br><span class="line">		for (int i = 0; i &lt; arr.length - 1; i++) &#123;</span><br><span class="line">			for (int j = 0; j &lt; arr.length-1-i; j++) &#123;</span><br><span class="line">				if (arr[j] &gt; arr[j+1]) &#123;</span><br><span class="line">					flag = true;</span><br><span class="line">					temp = arr[j+1];</span><br><span class="line">					arr[j+1] = arr[j];</span><br><span class="line">					arr[j] = temp;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">			if (!flag) &#123;</span><br><span class="line">				break;</span><br><span class="line">			&#125; else &#123;</span><br><span class="line">				flag = false;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>运行结果为:13秒左右(该结果只是为了比较各排序算法间时间复杂度的不同)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">排序前时间:2020-03-24 03:17:21</span><br><span class="line">排序后时间:2020-03-24 03:17:34</span><br></pre></td></tr></table></figure>
       
 
       
@@ -564,6 +893,17 @@
       
       
       
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/数据结构与算法//" class="article-tag-list-link color3">数据结构与算法</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
 
       
         <p class="article-more-link">
@@ -597,263 +937,9 @@
 
 
   
-    <article id="post-Lambda表达式" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/10/02/Lambda表达式/">Lambda表达式</a>
-    </h1>
-  
-
-        
-        <a href="/2019/10/02/Lambda表达式/" class="archive-article-date">
-  	<time datetime="2019-10-02T11:07:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-02</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/10/02/Lambda表达式/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="w-excel表格下载" class="article article-type-w  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/09/29/excel表格下载/">excel表格下载</a>
-    </h1>
-  
-
-        
-        <a href="/2019/09/29/excel表格下载/" class="archive-article-date">
-  	<time datetime="2019-09-29T00:47:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-29</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/09/29/excel表格下载/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-数据库之Mycat环境搭建" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/08/24/数据库之Mycat环境搭建/">数据库之Mycat环境搭建</a>
-    </h1>
-  
-
-        
-        <a href="/2019/08/24/数据库之Mycat环境搭建/" class="archive-article-date">
-  	<time datetime="2019-08-24T14:47:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-24</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="下载地址-1-3"><a href="#下载地址-1-3" class="headerlink" title="下载地址(1.3)"></a>下载地址(1.3)</h2><p><a href="https://github.com/MyCATApache/Mycat-server" target="_blank" rel="noopener">https://github.com/MyCATApache/Mycat-server</a></p>
-        
-          <a class="article-more-a" href="/2019/08/24/数据库之Mycat环境搭建/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/08/24/数据库之Mycat环境搭建/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-数据库之Mycat简介" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/08/24/数据库之Mycat简介/">数据库之Mycat简介</a>
-    </h1>
-  
-
-        
-        <a href="/2019/08/24/数据库之Mycat简介/" class="archive-article-date">
-  	<time datetime="2019-08-24T14:40:28.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-24</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="读写分离概念"><a href="#读写分离概念" class="headerlink" title="读写分离概念"></a>读写分离概念</h2><p>类似于读写Redis，读写分离顾明思意，读从从机读，而写入从主机写入，再同步到从机。当然你可以搭建多台从机</p>
-        
-          <a class="article-more-a" href="/2019/08/24/数据库之Mycat简介/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2019/08/24/数据库之Mycat简介/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
     </nav>
   
 

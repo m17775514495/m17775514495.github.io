@@ -6,18 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://m17775514495.github.io">
-  <title>Category: 规范代码 | 达文心</title>
+  <title>jdk8_Optional | 达文心</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="秃头才能变强">
-<meta property="og:type" content="website">
-<meta property="og:title" content="达文心">
-<meta property="og:url" content="http://m17775514495.github.io/categories/规范代码/index.html">
+  <meta name="description" content="Optional是Java 8 引进的新特性，主要是为了解决空指针异常(NullPointerException)；链式调用的方式在业务中也可以有效的避免if-else的出现。虽然可读性差了点，但只是还没彻底熟悉而已。Optional大量使用了函数式接口顺便把lambda表达式也熟悉了。我觉得最重要的是在熟悉Optional的过程中，必须时常去看源码，不管是看函数式接口是消费者，还是生产者。还是观">
+<meta property="og:type" content="article">
+<meta property="og:title" content="jdk8_Optional">
+<meta property="og:url" content="http://m17775514495.github.io/2020/03/16/jdk8-Optional/index.html">
 <meta property="og:site_name" content="达文心">
-<meta property="og:description" content="秃头才能变强">
+<meta property="og:description" content="Optional是Java 8 引进的新特性，主要是为了解决空指针异常(NullPointerException)；链式调用的方式在业务中也可以有效的避免if-else的出现。虽然可读性差了点，但只是还没彻底熟悉而已。Optional大量使用了函数式接口顺便把lambda表达式也熟悉了。我觉得最重要的是在熟悉Optional的过程中，必须时常去看源码，不管是看函数式接口是消费者，还是生产者。还是观">
 <meta property="og:locale" content="Chinese">
+<meta property="og:updated_time" content="2020-03-16T09:10:40.259Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="达文心">
-<meta name="twitter:description" content="秃头才能变强">
+<meta name="twitter:title" content="jdk8_Optional">
+<meta name="twitter:description" content="Optional是Java 8 引进的新特性，主要是为了解决空指针异常(NullPointerException)；链式调用的方式在业务中也可以有效的避免if-else的出现。虽然可读性差了点，但只是还没彻底熟悉而已。Optional大量使用了函数式接口顺便把lambda表达式也熟悉了。我觉得最重要的是在熟悉Optional的过程中，必须时常去看源码，不管是看函数式接口是消费者，还是生产者。还是观">
   
     <link rel="alternative" href="/atom.xml" title="达文心" type="application/atom+xml">
   
@@ -153,37 +154,71 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-jdk8-Optional" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      jdk8_Optional
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/03/16/jdk8-Optional/" class="archive-article-date">
+
+        
+        <a href="/2020/03/16/jdk8-Optional/" class="archive-article-date">
   	<time datetime="2020-03-16T07:02:55.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-16</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/03/16/jdk8-Optional/">jdk8_Optional</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Optional是Java 8 引进的新特性，主要是为了解决空指针异常(NullPointerException)；链式调用的方式在业务中也可以有效的避免if-else的出现。虽然可读性差了点，但只是还没彻底熟悉而已。Optional大量使用了函数式接口顺便把lambda表达式也熟悉了。我觉得最重要的是在熟悉Optional的过程中，必须时常去看源码，不管是看函数式接口是消费者，还是生产者。还是观察Optional具体方法的使用方式。还是泛型的使用，可以学学用在平常代码中，我觉得这个习惯应该保持。</p>
+<h2 id="Optional类"><a href="#Optional类" class="headerlink" title="Optional类"></a>Optional类</h2><p>optional的构造器是私有的，所以不能直接new</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">private Optional() &#123;</span><br><span class="line">        this.value = null;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 
-        <div class="article-info info-on-right">
-          
-          
+<p>简单的说几个方法的使用，这个直接看api就可以<br>Optional<string> optional = Optional.of(“达文心”) 返回当前传入值的<br>Optional.ofNullable</string></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"> public static &lt;T&gt; Optional&lt;T&gt; ofNullable(T value) &#123;</span><br><span class="line">        return value == null ? empty() : of(value);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">当传入值不等于null时存入原值	</span><br><span class="line">public static &lt;T&gt; Optional&lt;T&gt; of(T value) &#123;</span><br><span class="line">        return new Optional&lt;&gt;(value);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">等于空时返回一个final Optional</span><br></pre></td></tr></table></figure>
+
+<p> optional.orElse(“wx”); 如果一个optional中为空，则放入新传入值</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">optional.ifPresent((String t) -&gt;&#123;</span><br><span class="line">			//隐式的非null判断</span><br><span class="line">			System.out.println(t);</span><br><span class="line">		&#125;);</span><br><span class="line"></span><br><span class="line">//有一个无返回值的消费型的函数式接口，当值不等于null时，才去消费</span><br><span class="line">public void ifPresent(Consumer&lt;? super T&gt; consumer) &#123;</span><br><span class="line">        if (value != null)</span><br><span class="line">            consumer.accept(value);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<p> optional.map()</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">//参数是一个有返回值的函数式接口</span><br><span class="line">Optional&lt;String&gt; optional2 =  optional.map((String t) -&gt;&#123;</span><br><span class="line">//返回值修改为&quot;达文心&quot;			</span><br><span class="line">			return &quot;达文心&quot;;</span><br><span class="line">		&#125;);</span><br><span class="line">//get()获取optional中的值	    </span><br><span class="line">		System.out.println(optional2.get());</span><br><span class="line"></span><br><span class="line">//判断修改后或未修改值是否为null</span><br><span class="line"></span><br><span class="line">public&lt;U&gt; Optional&lt;U&gt; map(Function&lt;? super T, ? extends U&gt; mapper) &#123;</span><br><span class="line">        Objects.requireNonNull(mapper);</span><br><span class="line">        if (!isPresent())</span><br><span class="line">            return empty();</span><br><span class="line">        else &#123;</span><br><span class="line">            return Optional.ofNullable(mapper.apply(value));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="页面跳转举例"><a href="#页面跳转举例" class="headerlink" title="页面跳转举例"></a>页面跳转举例</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">//链式调用 filter过滤，保留&quot;达文心&quot;,返回 Optional</span><br><span class="line">String result = optional.filter((String t) -&gt;&#123;</span><br><span class="line">		   </span><br><span class="line">		return t.equals(&quot;达文心&quot;);</span><br><span class="line">		//不为返回具体地址字符串</span><br><span class="line">	   &#125;).map((String t) -&gt;&#123;</span><br><span class="line">		   </span><br><span class="line">		   return &quot;main&quot;;</span><br><span class="line">	    //为空 存入另一值，并返回</span><br><span class="line">	   &#125;).orElseGet(() -&gt;&#123;</span><br><span class="line">		   </span><br><span class="line">		   return &quot;login&quot;;</span><br><span class="line">	   &#125;);</span><br><span class="line">	   </span><br><span class="line">	   System.out.println(result);</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
@@ -196,93 +231,126 @@
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://m17775514495.github.io/2020/03/16/jdk8-Optional/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/01/15/try-with-resources/" class="archive-article-date">
-  	<time datetime="2020-01-15T02:19:40.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-15</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2020/03/24/选择排序/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          选择排序
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2020/01/15/try-with-resources/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">try-with-resources</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/01/15/try-with-resources/">try-with-resources</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/规范代码//" class="article-tag-list-link color5">规范代码</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Optional类"><span class="toc-number">1.</span> <span class="toc-text">Optional类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#页面跳转举例"><span class="toc-number">2.</span> <span class="toc-text">页面跳转举例</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/01/14/静态工厂方法/" class="archive-article-date">
-  	<time datetime="2020-01-14T11:41:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-14</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/01/14/静态工厂方法/">静态工厂方法</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/规范代码//" class="article-tag-list-link color5">规范代码</a>
-        		</li>
-      		
-		</ul>
-	</div>
+        
+    </div>
+</aside>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+
   
   
-    </div></section>
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -305,10 +373,10 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
-		isCategory: true,
+		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
 		root: "/",
