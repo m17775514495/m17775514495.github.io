@@ -6,19 +6,28 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://m17775514495.github.io">
-  <title>Lambda表达式 | 达文心</title>
+  <title>算法之堆排序 | 达文心</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="秃头才能变强">
+  <meta name="description" content="顺序存储二叉树在堆排序前要先介绍一下顺序存储二叉树，也就是说树的存储方式和树的存储方式可以相互转换，即数组可以转换成树，树叶可以转换成数组   顺序二叉树通常只考虑完全二叉树(完全二叉树: 就是从上到下，从左至右节点依次填充数据，上图如果将n=5删除就不是完全二叉树了) 第n个元素的左子节点为2n+1(例如:树中为值为1的结点，n=0 左子节点为:20+1= 1 所以数组中下标为1所在的值2 放在">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Lambda表达式">
-<meta property="og:url" content="http://m17775514495.github.io/2019/10/02/Lambda表达式/index.html">
+<meta property="og:title" content="算法之堆排序">
+<meta property="og:url" content="http://m17775514495.github.io/2020/03/31/算法之堆排序/index.html">
 <meta property="og:site_name" content="达文心">
-<meta property="og:description" content="秃头才能变强">
+<meta property="og:description" content="顺序存储二叉树在堆排序前要先介绍一下顺序存储二叉树，也就是说树的存储方式和树的存储方式可以相互转换，即数组可以转换成树，树叶可以转换成数组   顺序二叉树通常只考虑完全二叉树(完全二叉树: 就是从上到下，从左至右节点依次填充数据，上图如果将n=5删除就不是完全二叉树了) 第n个元素的左子节点为2n+1(例如:树中为值为1的结点，n=0 左子节点为:20+1= 1 所以数组中下标为1所在的值2 放在">
 <meta property="og:locale" content="Chinese">
-<meta property="og:updated_time" content="2019-10-02T11:07:25.303Z">
+<meta property="og:image" content="http://m17775514495.github.io/2020/03/31/算法之堆排序/1.png">
+<meta property="og:image" content="http://m17775514495.github.io/2020/03/31/算法之堆排序/2.png">
+<meta property="og:image" content="http://m17775514495.github.io/2020/03/31/算法之堆排序/3.png">
+<meta property="og:image" content="http://m17775514495.github.io/2020/03/31/算法之堆排序/4.png">
+<meta property="og:image" content="http://m17775514495.github.io/2020/03/31/算法之堆排序/5.png">
+<meta property="og:image" content="http://m17775514495.github.io/2020/03/31/算法之堆排序/6.png">
+<meta property="og:image" content="http://m17775514495.github.io/2020/03/31/算法之堆排序/7.png">
+<meta property="og:image" content="http://m17775514495.github.io/2020/03/31/算法之堆排序/8.png">
+<meta property="og:updated_time" content="2020-04-01T10:06:23.550Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Lambda表达式">
-<meta name="twitter:description" content="秃头才能变强">
+<meta name="twitter:title" content="算法之堆排序">
+<meta name="twitter:description" content="顺序存储二叉树在堆排序前要先介绍一下顺序存储二叉树，也就是说树的存储方式和树的存储方式可以相互转换，即数组可以转换成树，树叶可以转换成数组   顺序二叉树通常只考虑完全二叉树(完全二叉树: 就是从上到下，从左至右节点依次填充数据，上图如果将n=5删除就不是完全二叉树了) 第n个元素的左子节点为2n+1(例如:树中为值为1的结点，n=0 左子节点为:20+1= 1 所以数组中下标为1所在的值2 放在">
+<meta name="twitter:image" content="http://m17775514495.github.io/2020/03/31/算法之堆排序/1.png">
   
     <link rel="alternative" href="/atom.xml" title="达文心" type="application/atom+xml">
   
@@ -154,27 +163,69 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-Lambda表达式" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-算法之堆排序" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Lambda表达式
+      算法之堆排序
     </h1>
   
 
         
-        <a href="/2019/10/02/Lambda表达式/" class="archive-article-date">
-  	<time datetime="2019-10-02T11:07:25.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-10-02</time>
+        <a href="/2020/03/31/算法之堆排序/" class="archive-article-date">
+  	<time datetime="2020-03-31T12:08:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-31</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h2 id="顺序存储二叉树"><a href="#顺序存储二叉树" class="headerlink" title="顺序存储二叉树"></a>顺序存储二叉树</h2><p>在堆排序前要先介绍一下顺序存储二叉树，也就是说树的存储方式和树的存储方式可以相互转换，即数组可以转换成树，树叶可以转换成数组</p>
+<p><img src="/2020/03/31/算法之堆排序/1.png" alt="BP"></p>
+<ol>
+<li>顺序二叉树通常只考虑完全二叉树(完全二叉树: 就是从上到下，从左至右节点依次填充数据，上图如果将n=5删除就不是完全二叉树了)</li>
+<li>第n个元素的左子节点为2<em>n+1(例如:树中为值为1的结点，n=0 左子节点为:2</em>0+1= 1 所以数组中下标为1所在的值2 放在当前节点的左子节点位置)</li>
+<li>第n个元素的右子节点为2*n+2</li>
+<li>第n个元素的父节点为(n-1)/2</li>
+</ol>
+<h2 id="堆排序"><a href="#堆排序" class="headerlink" title="堆排序"></a>堆排序</h2><ol>
+<li>堆排序是利用堆这种数据结构而设计的一种排序算法，堆排序是一种选择排序，它的最坏，最好，平均时间复 杂度均为 O(nlogn)，它也是不稳定排序。</li>
+<li>堆是具有以下性质的完全二叉树：每个结点的值都大于或等于其左右子结点的值，称为大顶堆, 注意 : 没有 要求结点的左子结点的值和右子结点的值的大小关系。</li>
+<li>每个结点的值都小于或等于其左右子结点的值，称为小顶堆</li>
+</ol>
+<p>大顶堆: </p>
+<p><img src="/2020/03/31/算法之堆排序/2.png" alt="BP"></p>
+<p>大顶堆的arr[n] &gt;= arr[n+1] &amp;&amp; arr[n] &gt;= arr[n+2] 意思就是说当前元素所在结点如果有子结点，那么它的值一定不小于左右子结点的值</p>
+<p>思路解析: </p>
+<ol>
+<li>初始化数组</li>
+</ol>
+<p><img src="/2020/03/31/算法之堆排序/3.png" alt="BP"></p>
+<ol start="2">
+<li>将树变成大顶堆(遵循从下到上从左至右的原则)</li>
+</ol>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;2.1 从上至下原则，从最后一个非叶子结点开始，先将元素值为 6 结点与其子结点进行比较。比较时遵循从左至右原则，也就是说先比较左(2n+1)右(2n+2)子结点大小，然后大的子节点再与当前子结点父结点比较交换位置</p>
+<p><img src="/2020/03/31/算法之堆排序/4.png" alt="BP"></p>
+<p>&nbsp;&nbsp;&nbsp;&nbsp;2.2 将 4 和 9 进行位置交换</p>
+<p><img src="/2020/03/31/算法之堆排序/5.png" alt="BP"></p>
+<p>这时因为这个非叶子结点调整了，所以又需调整这个非叶子结点下面的所有非叶子结点的数据 这时就调整成为一个大顶堆了</p>
+<p><img src="/2020/03/31/算法之堆排序/6.png" alt="BP"></p>
+<ol start="3">
+<li>将根结点的数据放到数组末尾,从根结点开始又重新调整为大顶堆，这次不算数组末尾数据因为已是最大的了。</li>
+</ol>
+<p><img src="/2020/03/31/算法之堆排序/7.png" alt="BP"></p>
+<p>从根结点开始调整，调整完后，又将根结点元素沉到最后以此重复。</p>
+<p><img src="/2020/03/31/算法之堆排序/8.png" alt="BP"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br></pre></td><td class="code"><pre><span class="line">/**</span><br><span class="line"> *   堆排序</span><br><span class="line"> * @author DELL</span><br><span class="line"> *</span><br><span class="line"> */</span><br><span class="line">public class HeapSort &#123;</span><br><span class="line">	public static void main(String[] args) &#123;</span><br><span class="line">		//将数组进行升序排列 (大顶堆)</span><br><span class="line">		int arr[] = &#123;4,6,8,5,9&#125;;</span><br><span class="line">		</span><br><span class="line">		heapSort(arr);</span><br><span class="line">		System.out.println(Arrays.toString(arr));</span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	//编写一个堆排序循环次数的方法</span><br><span class="line">	public static void heapSort(int arr[]) &#123;		</span><br><span class="line">		</span><br><span class="line">		int temp = 0;</span><br><span class="line">		</span><br><span class="line">		//当前循环将数组数据改造成大顶堆或者小顶堆</span><br><span class="line">		//arr.length / 2 表示 当前数组有几个结点 </span><br><span class="line">		//因数组下标为0开始 所以 arr.length - 1 取值表示结点数据</span><br><span class="line">		for (int i = arr.length / 2 - 1; i &gt;= 0; i--) &#123;</span><br><span class="line">			adjustHeap(arr, i, arr.length);</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		//将堆顶元素(最大值(最小值))交换到数组末端</span><br><span class="line">		//经过将数组变成大顶堆后 根结点一定是最大的元素</span><br><span class="line">		//&quot;取出&quot; 根节点 剩下的从根节点开始从上到下调整数组元素 重新变成大顶堆 </span><br><span class="line">		for (int j = arr.length - 1; j &gt; 0 ; j--) &#123;</span><br><span class="line">			//交换</span><br><span class="line">			temp = arr[j];</span><br><span class="line">			arr[j] = arr[0];</span><br><span class="line">			arr[0] = temp;</span><br><span class="line">			</span><br><span class="line">			</span><br><span class="line">			adjustHeap(arr, 0, j);</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">	//将数组调整成一个大顶堆</span><br><span class="line">	/**</span><br><span class="line">	 * </span><br><span class="line">	 * @param arr 数组</span><br><span class="line">	 * @param i   当前非叶子结点位置</span><br><span class="line">	 * @param length 表示对多少个元素进行调整</span><br><span class="line">	 */</span><br><span class="line">	public static void adjustHeap(int arr[], int i, int length)&#123;</span><br><span class="line">		//当前元素值</span><br><span class="line">		int temp = arr[i];</span><br><span class="line">		//k 表示当前元素值的左结点</span><br><span class="line">		for (int k = 2*i +1; k &lt;length; k = k * 2 +1) &#123;</span><br><span class="line">			//当左子结点小于右子结点</span><br><span class="line"></span><br><span class="line">			if (k+1 &lt; length &amp;&amp; arr[k] &lt; arr[k+1]) &#123;</span><br><span class="line">				//指向右节点</span><br><span class="line">				k++;</span><br><span class="line">			&#125;</span><br><span class="line">			</span><br><span class="line">			//如果子结点大于结点元素</span><br><span class="line">			if (arr[k] &gt; temp) &#123;</span><br><span class="line">				//交换子结点与他父结点的位置</span><br><span class="line">				arr[i] = arr[k];</span><br><span class="line">				//因进行了交换,所以这个子结点下面需要重新调整为大顶堆</span><br><span class="line">				i = k;</span><br><span class="line">			&#125; else &#123;</span><br><span class="line">				//因顺序为重下到上, 所以可直接break </span><br><span class="line">				break;            </span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		//将结点覆盖为子结点元素</span><br><span class="line">		arr[i] = temp;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>800000个数据</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">排序前时间:06:05:02</span><br><span class="line">排序后时间:06:05:02</span><br></pre></td></tr></table></figure>
+
+<p>8000000个数据</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">排序前时间:06:05:35</span><br><span class="line">排序后时间:06:05:37</span><br></pre></td></tr></table></figure>
       
 
       
@@ -204,6 +255,17 @@
       
       
       
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/数据结构与算法//" class="article-tag-list-link color3">数据结构与算法</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
 
       
 
@@ -253,7 +315,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://m17775514495.github.io/2019/10/02/Lambda表达式/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://m17775514495.github.io/2020/03/31/算法之堆排序/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -267,18 +329,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/12/10/策略模式/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          策略模式
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/09/29/excel表格下载/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">excel表格下载</div>
+    <a href="/2020/03/30/数据结构之哈希表/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">数据结构之哈希表</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -297,6 +350,19 @@
             </div>
         </div>
         
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#顺序存储二叉树"><span class="toc-number">1.</span> <span class="toc-text">顺序存储二叉树</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#堆排序"><span class="toc-number">2.</span> <span class="toc-text">堆排序</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
         
     </div>
 </aside>
