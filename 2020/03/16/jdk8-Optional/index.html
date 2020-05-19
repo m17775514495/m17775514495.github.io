@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="达文心">
 <meta property="og:description" content="Optional是Java 8 引进的新特性，主要是为了解决空指针异常(NullPointerException)；链式调用的方式在业务中也可以有效的避免if-else的出现。虽然可读性差了点，但只是还没彻底熟悉而已。Optional大量使用了函数式接口顺便把lambda表达式也熟悉了。我觉得最重要的是在熟悉Optional的过程中，必须时常去看源码，不管是看函数式接口是消费者，还是生产者。还是观">
 <meta property="og:locale" content="Chinese">
-<meta property="og:updated_time" content="2020-03-16T09:10:40.259Z">
+<meta property="og:updated_time" content="2020-05-19T17:58:26.701Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="jdk8_Optional">
 <meta name="twitter:description" content="Optional是Java 8 引进的新特性，主要是为了解决空指针异常(NullPointerException)；链式调用的方式在业务中也可以有效的避免if-else的出现。虽然可读性差了点，但只是还没彻底熟悉而已。Optional大量使用了函数式接口顺便把lambda表达式也熟悉了。我觉得最重要的是在熟悉Optional的过程中，必须时常去看源码，不管是看函数式接口是消费者，还是生产者。还是观">
@@ -175,6 +175,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>Optional是Java 8 引进的新特性，主要是为了解决空指针异常(NullPointerException)；链式调用的方式在业务中也可以有效的避免if-else的出现。虽然可读性差了点，但只是还没彻底熟悉而已。Optional大量使用了函数式接口顺便把lambda表达式也熟悉了。我觉得最重要的是在熟悉Optional的过程中，必须时常去看源码，不管是看函数式接口是消费者，还是生产者。还是观察Optional具体方法的使用方式。还是泛型的使用，可以学学用在平常代码中，我觉得这个习惯应该保持。</p>
+<a id="more"></a>
 <h2 id="Optional类"><a href="#Optional类" class="headerlink" title="Optional类"></a>Optional类</h2><p>optional的构造器是私有的，所以不能直接new</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">private Optional() &#123;</span><br><span class="line">        this.value = null;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 
