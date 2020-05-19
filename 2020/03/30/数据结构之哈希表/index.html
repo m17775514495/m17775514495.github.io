@@ -8,19 +8,19 @@
   <link rel="dns-prefetch" href="http://m17775514495.github.io">
   <title>数据结构之哈希表 | 达文心</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="哈希表的基本介绍散列表（Hash table，也叫哈希表），是根据关键码值(Key value)而直接进行访问的数据结构。也就是说，它通 过把关键码值映射到表中一个位置来访问记录，以加快查找的速度。这个映射函数叫做散列函数，存放记录的数组 叫做散列表。  以数组加链表的形式组成哈希表，数组元素中储存的为链表。存储数据时通过数据的某个值进行散列，取到对应的数组下标中的链表，将数据存入链表中。 例如:">
+  <meta name="description" content="哈希表的基本介绍散列表（Hash table，也叫哈希表），是根据关键码值(Key value)而直接进行访问的数据结构。也就是说，它通 过把关键码值映射到表中一个位置来访问记录，以加快查找的速度。这个映射函数叫做散列函数，存放记录的数组 叫做散列表。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="数据结构之哈希表">
 <meta property="og:url" content="http://m17775514495.github.io/2020/03/30/数据结构之哈希表/index.html">
 <meta property="og:site_name" content="达文心">
-<meta property="og:description" content="哈希表的基本介绍散列表（Hash table，也叫哈希表），是根据关键码值(Key value)而直接进行访问的数据结构。也就是说，它通 过把关键码值映射到表中一个位置来访问记录，以加快查找的速度。这个映射函数叫做散列函数，存放记录的数组 叫做散列表。  以数组加链表的形式组成哈希表，数组元素中储存的为链表。存储数据时通过数据的某个值进行散列，取到对应的数组下标中的链表，将数据存入链表中。 例如:">
+<meta property="og:description" content="哈希表的基本介绍散列表（Hash table，也叫哈希表），是根据关键码值(Key value)而直接进行访问的数据结构。也就是说，它通 过把关键码值映射到表中一个位置来访问记录，以加快查找的速度。这个映射函数叫做散列函数，存放记录的数组 叫做散列表。">
 <meta property="og:locale" content="Chinese">
 <meta property="og:image" content="http://m17775514495.github.io/2020/03/30/数据结构之哈希表/1.png">
 <meta property="og:image" content="http://m17775514495.github.io/2020/03/30/数据结构之哈希表/2.png">
-<meta property="og:updated_time" content="2020-03-30T08:17:19.961Z">
+<meta property="og:updated_time" content="2020-05-19T17:52:35.366Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="数据结构之哈希表">
-<meta name="twitter:description" content="哈希表的基本介绍散列表（Hash table，也叫哈希表），是根据关键码值(Key value)而直接进行访问的数据结构。也就是说，它通 过把关键码值映射到表中一个位置来访问记录，以加快查找的速度。这个映射函数叫做散列函数，存放记录的数组 叫做散列表。  以数组加链表的形式组成哈希表，数组元素中储存的为链表。存储数据时通过数据的某个值进行散列，取到对应的数组下标中的链表，将数据存入链表中。 例如:">
+<meta name="twitter:description" content="哈希表的基本介绍散列表（Hash table，也叫哈希表），是根据关键码值(Key value)而直接进行访问的数据结构。也就是说，它通 过把关键码值映射到表中一个位置来访问记录，以加快查找的速度。这个映射函数叫做散列函数，存放记录的数组 叫做散列表。">
 <meta name="twitter:image" content="http://m17775514495.github.io/2020/03/30/数据结构之哈希表/1.png">
   
     <link rel="alternative" href="/atom.xml" title="达文心" type="application/atom+xml">
@@ -178,6 +178,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="哈希表的基本介绍"><a href="#哈希表的基本介绍" class="headerlink" title="哈希表的基本介绍"></a>哈希表的基本介绍</h2><p>散列表（Hash table，也叫哈希表），是根据关键码值(Key value)而直接进行访问的数据结构。也就是说，它通 过把关键码值映射到表中一个位置来访问记录，以加快查找的速度。这个映射函数叫做散列函数，存放记录的数组 叫做散列表。</p>
+<a id="more"></a>
 <p><img src="/2020/03/30/数据结构之哈希表/1.png" alt="BP"></p>
 <p>以数组加链表的形式组成哈希表，数组元素中储存的为链表。存储数据时通过数据的某个值进行散列，取到对应的数组下标中的链表，将数据存入链表中。</p>
 <p>例如: 看一个实际需求，google公司的一个上机题)有一个公司,当有新的员工来报道时,要求将该员工的信息加入(id,性别,年龄,住址..),当输入该员工的id时,找到该员工的所有信息)要求:不使用数据库,尽量节省内存,速度越快越好=&gt;哈希表(散列)</p>
