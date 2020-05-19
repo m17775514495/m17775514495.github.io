@@ -8,12 +8,12 @@
   <link rel="dns-prefetch" href="http://m17775514495.github.io">
   <title>算法之希尔排序 | 达文心</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="时间复杂度: O(NlogN)基本思想: 希尔排序是把序列按一定间隔分组，对每组使用直接插入排序；随着间隔减小，一直到1，算法终止思路解析(从小到大排序):初始数组长度为10: 第一轮(步长(int) = 10/2 = 5) 将连线两组数据进行比较交换  数组变更为  第二轮(步长(int) = 5/2 = 2)  交换式(冒泡排序): 按步长分为了两组，例如第一次判断0时，与该组有序区最后一个1">
+  <meta name="description" content="时间复杂度: O(NlogN)基本思想: 希尔排序是把序列按一定间隔分组，对每组使用直接插入排序；随着间隔减小，一直到1，算法终止思路解析(从小到大排序):">
 <meta property="og:type" content="article">
 <meta property="og:title" content="算法之希尔排序">
 <meta property="og:url" content="http://m17775514495.github.io/2020/03/18/算法之希尔排序/index.html">
 <meta property="og:site_name" content="达文心">
-<meta property="og:description" content="时间复杂度: O(NlogN)基本思想: 希尔排序是把序列按一定间隔分组，对每组使用直接插入排序；随着间隔减小，一直到1，算法终止思路解析(从小到大排序):初始数组长度为10: 第一轮(步长(int) = 10/2 = 5) 将连线两组数据进行比较交换  数组变更为  第二轮(步长(int) = 5/2 = 2)  交换式(冒泡排序): 按步长分为了两组，例如第一次判断0时，与该组有序区最后一个1">
+<meta property="og:description" content="时间复杂度: O(NlogN)基本思想: 希尔排序是把序列按一定间隔分组，对每组使用直接插入排序；随着间隔减小，一直到1，算法终止思路解析(从小到大排序):">
 <meta property="og:locale" content="Chinese">
 <meta property="og:image" content="http://m17775514495.github.io/2020/03/18/算法之希尔排序/1.png">
 <meta property="og:image" content="http://m17775514495.github.io/2020/03/18/算法之希尔排序/2.png">
@@ -21,10 +21,10 @@
 <meta property="og:image" content="http://m17775514495.github.io/2020/03/18/算法之希尔排序/4.png">
 <meta property="og:image" content="http://m17775514495.github.io/2020/03/18/算法之希尔排序/5.png">
 <meta property="og:image" content="http://m17775514495.github.io/2020/03/18/算法之希尔排序/6.png">
-<meta property="og:updated_time" content="2020-03-26T10:54:12.352Z">
+<meta property="og:updated_time" content="2020-05-19T17:37:46.037Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="算法之希尔排序">
-<meta name="twitter:description" content="时间复杂度: O(NlogN)基本思想: 希尔排序是把序列按一定间隔分组，对每组使用直接插入排序；随着间隔减小，一直到1，算法终止思路解析(从小到大排序):初始数组长度为10: 第一轮(步长(int) = 10/2 = 5) 将连线两组数据进行比较交换  数组变更为  第二轮(步长(int) = 5/2 = 2)  交换式(冒泡排序): 按步长分为了两组，例如第一次判断0时，与该组有序区最后一个1">
+<meta name="twitter:description" content="时间复杂度: O(NlogN)基本思想: 希尔排序是把序列按一定间隔分组，对每组使用直接插入排序；随着间隔减小，一直到1，算法终止思路解析(从小到大排序):">
 <meta name="twitter:image" content="http://m17775514495.github.io/2020/03/18/算法之希尔排序/1.png">
   
     <link rel="alternative" href="/atom.xml" title="达文心" type="application/atom+xml">
@@ -181,7 +181,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="时间复杂度-O-NlogN"><a href="#时间复杂度-O-NlogN" class="headerlink" title="时间复杂度: O(NlogN)"></a>时间复杂度: O(NlogN)</h3><h3 id="基本思想-希尔排序是把序列按一定间隔分组，对每组使用直接插入排序；随着间隔减小，一直到1，算法终止"><a href="#基本思想-希尔排序是把序列按一定间隔分组，对每组使用直接插入排序；随着间隔减小，一直到1，算法终止" class="headerlink" title="基本思想: 希尔排序是把序列按一定间隔分组，对每组使用直接插入排序；随着间隔减小，一直到1，算法终止"></a>基本思想: 希尔排序是把序列按一定间隔分组，对每组使用直接插入排序；随着间隔减小，一直到1，算法终止</h3><h3 id="思路解析-从小到大排序"><a href="#思路解析-从小到大排序" class="headerlink" title="思路解析(从小到大排序):"></a>思路解析(从小到大排序):</h3><p>初始数组长度为10:<br><img src="/2020/03/18/算法之希尔排序/1.png" alt="BP"></p>
+        <h3 id="时间复杂度-O-NlogN"><a href="#时间复杂度-O-NlogN" class="headerlink" title="时间复杂度: O(NlogN)"></a>时间复杂度: O(NlogN)</h3><h3 id="基本思想-希尔排序是把序列按一定间隔分组，对每组使用直接插入排序；随着间隔减小，一直到1，算法终止"><a href="#基本思想-希尔排序是把序列按一定间隔分组，对每组使用直接插入排序；随着间隔减小，一直到1，算法终止" class="headerlink" title="基本思想: 希尔排序是把序列按一定间隔分组，对每组使用直接插入排序；随着间隔减小，一直到1，算法终止"></a>基本思想: 希尔排序是把序列按一定间隔分组，对每组使用直接插入排序；随着间隔减小，一直到1，算法终止</h3><h3 id="思路解析-从小到大排序"><a href="#思路解析-从小到大排序" class="headerlink" title="思路解析(从小到大排序):"></a>思路解析(从小到大排序):</h3><a id="more"></a>
+<p>初始数组长度为10:<br><img src="/2020/03/18/算法之希尔排序/1.png" alt="BP"></p>
 <p>第一轮(步长(int) = 10/2 = 5) 将连线两组数据进行比较交换</p>
 <p><img src="/2020/03/18/算法之希尔排序/2.png" alt="BP"></p>
 <p>数组变更为</p>

@@ -8,12 +8,12 @@
   <link rel="dns-prefetch" href="http://m17775514495.github.io">
   <title>算法之堆排序 | 达文心</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="顺序存储二叉树在堆排序前要先介绍一下顺序存储二叉树，也就是说树的存储方式和树的存储方式可以相互转换，即数组可以转换成树，树叶可以转换成数组   顺序二叉树通常只考虑完全二叉树(完全二叉树: 就是从上到下，从左至右节点依次填充数据，上图如果将n=5删除就不是完全二叉树了) 第n个元素的左子节点为2n+1(例如:树中为值为1的结点，n=0 左子节点为:20+1= 1 所以数组中下标为1所在的值2 放在">
+  <meta name="description" content="顺序存储二叉树在堆排序前要先介绍一下顺序存储二叉树，也就是说树的存储方式和树的存储方式可以相互转换，即数组可以转换成树，树叶可以转换成数组">
 <meta property="og:type" content="article">
 <meta property="og:title" content="算法之堆排序">
 <meta property="og:url" content="http://m17775514495.github.io/2020/03/31/算法之堆排序/index.html">
 <meta property="og:site_name" content="达文心">
-<meta property="og:description" content="顺序存储二叉树在堆排序前要先介绍一下顺序存储二叉树，也就是说树的存储方式和树的存储方式可以相互转换，即数组可以转换成树，树叶可以转换成数组   顺序二叉树通常只考虑完全二叉树(完全二叉树: 就是从上到下，从左至右节点依次填充数据，上图如果将n=5删除就不是完全二叉树了) 第n个元素的左子节点为2n+1(例如:树中为值为1的结点，n=0 左子节点为:20+1= 1 所以数组中下标为1所在的值2 放在">
+<meta property="og:description" content="顺序存储二叉树在堆排序前要先介绍一下顺序存储二叉树，也就是说树的存储方式和树的存储方式可以相互转换，即数组可以转换成树，树叶可以转换成数组">
 <meta property="og:locale" content="Chinese">
 <meta property="og:image" content="http://m17775514495.github.io/2020/03/31/算法之堆排序/1.png">
 <meta property="og:image" content="http://m17775514495.github.io/2020/03/31/算法之堆排序/2.png">
@@ -23,10 +23,10 @@
 <meta property="og:image" content="http://m17775514495.github.io/2020/03/31/算法之堆排序/6.png">
 <meta property="og:image" content="http://m17775514495.github.io/2020/03/31/算法之堆排序/7.png">
 <meta property="og:image" content="http://m17775514495.github.io/2020/03/31/算法之堆排序/8.png">
-<meta property="og:updated_time" content="2020-04-01T10:06:23.550Z">
+<meta property="og:updated_time" content="2020-05-19T17:38:58.671Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="算法之堆排序">
-<meta name="twitter:description" content="顺序存储二叉树在堆排序前要先介绍一下顺序存储二叉树，也就是说树的存储方式和树的存储方式可以相互转换，即数组可以转换成树，树叶可以转换成数组   顺序二叉树通常只考虑完全二叉树(完全二叉树: 就是从上到下，从左至右节点依次填充数据，上图如果将n=5删除就不是完全二叉树了) 第n个元素的左子节点为2n+1(例如:树中为值为1的结点，n=0 左子节点为:20+1= 1 所以数组中下标为1所在的值2 放在">
+<meta name="twitter:description" content="顺序存储二叉树在堆排序前要先介绍一下顺序存储二叉树，也就是说树的存储方式和树的存储方式可以相互转换，即数组可以转换成树，树叶可以转换成数组">
 <meta name="twitter:image" content="http://m17775514495.github.io/2020/03/31/算法之堆排序/1.png">
   
     <link rel="alternative" href="/atom.xml" title="达文心" type="application/atom+xml">
@@ -184,6 +184,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h2 id="顺序存储二叉树"><a href="#顺序存储二叉树" class="headerlink" title="顺序存储二叉树"></a>顺序存储二叉树</h2><p>在堆排序前要先介绍一下顺序存储二叉树，也就是说树的存储方式和树的存储方式可以相互转换，即数组可以转换成树，树叶可以转换成数组</p>
+<a id="more"></a>
 <p><img src="/2020/03/31/算法之堆排序/1.png" alt="BP"></p>
 <ol>
 <li>顺序二叉树通常只考虑完全二叉树(完全二叉树: 就是从上到下，从左至右节点依次填充数据，上图如果将n=5删除就不是完全二叉树了)</li>

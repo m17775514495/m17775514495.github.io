@@ -8,17 +8,17 @@
   <link rel="dns-prefetch" href="http://m17775514495.github.io">
   <title>算法之插入排序 | 达文心</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="时间复杂度: O(n^2)原理: 将无序区的元素依次插入到有序区思路解析(从小到大排序):初始数组:101,34,119,1第一轮排序:&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;设定第一个元素(101)为有序区&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;记录无序区第一个元素34，将34与101进行比较&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;34小于101，将101元素后移即覆盖元">
+  <meta name="description" content="时间复杂度: O(n^2)原理: 将无序区的元素依次插入到有序区思路解析(从小到大排序):">
 <meta property="og:type" content="article">
 <meta property="og:title" content="算法之插入排序">
 <meta property="og:url" content="http://m17775514495.github.io/2020/03/25/算法之插入排序/index.html">
 <meta property="og:site_name" content="达文心">
-<meta property="og:description" content="时间复杂度: O(n^2)原理: 将无序区的元素依次插入到有序区思路解析(从小到大排序):初始数组:101,34,119,1第一轮排序:&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;设定第一个元素(101)为有序区&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;记录无序区第一个元素34，将34与101进行比较&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;34小于101，将101元素后移即覆盖元">
+<meta property="og:description" content="时间复杂度: O(n^2)原理: 将无序区的元素依次插入到有序区思路解析(从小到大排序):">
 <meta property="og:locale" content="Chinese">
-<meta property="og:updated_time" content="2020-03-25T08:40:10.130Z">
+<meta property="og:updated_time" content="2020-05-19T17:39:06.441Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="算法之插入排序">
-<meta name="twitter:description" content="时间复杂度: O(n^2)原理: 将无序区的元素依次插入到有序区思路解析(从小到大排序):初始数组:101,34,119,1第一轮排序:&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;设定第一个元素(101)为有序区&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;记录无序区第一个元素34，将34与101进行比较&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;34小于101，将101元素后移即覆盖元">
+<meta name="twitter:description" content="时间复杂度: O(n^2)原理: 将无序区的元素依次插入到有序区思路解析(从小到大排序):">
   
     <link rel="alternative" href="/atom.xml" title="达文心" type="application/atom+xml">
   
@@ -174,7 +174,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="时间复杂度-O-n-2"><a href="#时间复杂度-O-n-2" class="headerlink" title="时间复杂度: O(n^2)"></a>时间复杂度: O(n^2)</h3><h3 id="原理-将无序区的元素依次插入到有序区"><a href="#原理-将无序区的元素依次插入到有序区" class="headerlink" title="原理: 将无序区的元素依次插入到有序区"></a>原理: 将无序区的元素依次插入到有序区</h3><h3 id="思路解析-从小到大排序"><a href="#思路解析-从小到大排序" class="headerlink" title="思路解析(从小到大排序):"></a>思路解析(从小到大排序):</h3><p>初始数组:<strong>101</strong>,34,119,1<br>第一轮排序:<br>&nbsp;&nbsp;&nbsp;&nbsp;设定第一个元素(101)为有序区<br>&nbsp;&nbsp;&nbsp;&nbsp;记录无序区第一个元素34，将34与101进行比较<br>&nbsp;&nbsp;&nbsp;&nbsp;34小于101，将101元素后移即覆盖元素为34位置的数 101,101,119,1<br>&nbsp;&nbsp;&nbsp;&nbsp;将34放在101，数组现为<strong>34,101</strong>,119,1</p>
+        <h3 id="时间复杂度-O-n-2"><a href="#时间复杂度-O-n-2" class="headerlink" title="时间复杂度: O(n^2)"></a>时间复杂度: O(n^2)</h3><h3 id="原理-将无序区的元素依次插入到有序区"><a href="#原理-将无序区的元素依次插入到有序区" class="headerlink" title="原理: 将无序区的元素依次插入到有序区"></a>原理: 将无序区的元素依次插入到有序区</h3><h3 id="思路解析-从小到大排序"><a href="#思路解析-从小到大排序" class="headerlink" title="思路解析(从小到大排序):"></a>思路解析(从小到大排序):</h3><a id="more"></a>
+<p>初始数组:<strong>101</strong>,34,119,1<br>第一轮排序:<br>&nbsp;&nbsp;&nbsp;&nbsp;设定第一个元素(101)为有序区<br>&nbsp;&nbsp;&nbsp;&nbsp;记录无序区第一个元素34，将34与101进行比较<br>&nbsp;&nbsp;&nbsp;&nbsp;34小于101，将101元素后移即覆盖元素为34位置的数 101,101,119,1<br>&nbsp;&nbsp;&nbsp;&nbsp;将34放在101，数组现为<strong>34,101</strong>,119,1</p>
 <p>第二轮排序:<br>&nbsp;&nbsp;&nbsp;&nbsp;记录无序区第一个元素119，将119与101进行比较<br>&nbsp;&nbsp;&nbsp;&nbsp;119 &gt; 101，数组现为<strong>34,101,119</strong>,1</p>
 <p>第三轮排序:<br>&nbsp;&nbsp;&nbsp;&nbsp;记录无序区第一个元素1，将1与119进行比较<br>&nbsp;&nbsp;&nbsp;&nbsp;1小于119，将119元素后移即覆盖元素为1位置的数 <strong>34,101,119</strong>,119<br>&nbsp;&nbsp;&nbsp;&nbsp;将1与101进行比较，小于则将101后移覆盖<br> <strong>34,101,101</strong>,119<br>&nbsp;&nbsp;&nbsp;&nbsp;将1与34进行比较，小于则将34后移覆盖<br> <strong>34,34,101</strong>,119<br>&nbsp;&nbsp;&nbsp;&nbsp;34前方无元素，则将1插入34的位置</p>
 <p>总结:<br>1.从下标为1开始轮数<br>2.每次记录无序区的第一个元素，并与有序区依次进行比较</p>
@@ -297,8 +298,8 @@
     </a>
   
   
-    <a href="/2020/03/25/算法之选择排序/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">算法之选择排序</div>
+    <a href="/2020/03/25/算法之冒泡排序/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">算法之冒泡排序</div>
       <i class="icon-circle-right"></i>
     </a>
   
