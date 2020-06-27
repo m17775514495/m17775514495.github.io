@@ -6,18 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://m17775514495.github.io">
-  <title>Archives: 2019/8 | 达文心</title>
+  <title>MQTT | 达文心</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="秃头才能变强">
-<meta property="og:type" content="website">
-<meta property="og:title" content="达文心">
-<meta property="og:url" content="http://m17775514495.github.io/archives/2019/08/page/2/index.html">
+  <meta name="description" content="简介MQTT(消息队列遥测传输)是ISO 标准(ISO/IEC PRF 20922)下基于发布/订阅范式的消息协议。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MQTT">
+<meta property="og:url" content="http://m17775514495.github.io/2020/06/27/MQTT简介/index.html">
 <meta property="og:site_name" content="达文心">
-<meta property="og:description" content="秃头才能变强">
+<meta property="og:description" content="简介MQTT(消息队列遥测传输)是ISO 标准(ISO/IEC PRF 20922)下基于发布/订阅范式的消息协议。">
 <meta property="og:locale" content="Chinese">
+<meta property="og:image" content="http://m17775514495.github.io/2020/06/27/MQTT简介/mqtt-fidge-2.svg">
+<meta property="og:updated_time" content="2020-06-27T15:05:11.165Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="达文心">
-<meta name="twitter:description" content="秃头才能变强">
+<meta name="twitter:title" content="MQTT">
+<meta name="twitter:description" content="简介MQTT(消息队列遥测传输)是ISO 标准(ISO/IEC PRF 20922)下基于发布/订阅范式的消息协议。">
+<meta name="twitter:image" content="http://m17775514495.github.io/2020/06/27/MQTT简介/mqtt-fidge-2.svg">
   
     <link rel="alternative" href="/atom.xml" title="达文心" type="application/atom+xml">
   
@@ -153,90 +156,191 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-MQTT简介" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/08/21/事实上司/秃头之springCloud-一-简单介绍/" class="archive-article-date">
-  	<time datetime="2019-08-21T02:45:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-21</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/08/21/事实上司/秃头之springCloud-一-简单介绍/">秃头之springCloud(一) 简单介绍</a>
+    <h1 class="article-title" itemprop="name">
+      MQTT
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/08/21/秃头之springCloud-二-master-module两个项目/" class="archive-article-date">
-  	<time datetime="2019-08-21T02:42:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-08-21</time>
+        
+        <a href="/2020/06/27/MQTT简介/" class="archive-article-date">
+  	<time datetime="2020-06-27T14:10:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-06-27</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/08/21/秃头之springCloud-二-master-module两个项目/">秃头之springCloud(二) master module两个项目</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>MQTT(消息队列遥测传输)是ISO 标准(ISO/IEC PRF 20922)下基于发布/订阅范式的消息协议。</p>
+<a id="more"></a>
+<h2 id="解决问题"><a href="#解决问题" class="headerlink" title="解决问题"></a>解决问题</h2><p>硬件性能低下的远程设备以及网络状况糟糕的情况下而设计的发布/订阅型消息协议，为此，它需要一个消息中间件(消息代理 broker)。</p>
+<h2 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h2><ol>
+<li>使用发布/订阅消息模式，提供一对多的消息发布，解除应用程序耦合；</li>
+<li>对负载内容屏蔽的消息传输；</li>
+<li>使用 TCP/IP 提供网络连接；</li>
+<li>有三种消息发布服务质量；</li>
+<li>小型传输，开销很小（固定长度的头部是 2 字节），协议交换最小化，以降低网络流量；</li>
+</ol>
+<p><img src="/2020/06/27/MQTT简介/mqtt-fidge-2.svg" alt="BP"></p>
+<h2 id="EMQ"><a href="#EMQ" class="headerlink" title="EMQ"></a>EMQ</h2><p>使用EMQ 作为消息代理Broker。网址(<a href="https://docs.emqx.io/broker/latest/cn/" target="_blank" rel="noopener">https://docs.emqx.io/broker/latest/cn/</a>)</p>
+<h2 id="主题通配符"><a href="#主题通配符" class="headerlink" title="主题通配符"></a>主题通配符</h2><p> 订阅也许会包含特殊字符，允许一次订阅多个主题。</p>
+<p><strong>顶层分隔符(/)</strong> 被用来分割主题树的每一层，并给主题空间提供分等级的结构。当两个通配符在一个主题中出现的时候，主题层次分隔符的使用是很重要的。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">finance/stock/ibm</span><br></pre></td></tr></table></figure>
 
-        <div class="article-info info-on-right">
-          
-          
+
+<p><strong>多层通配符(#)</strong>是一个匹配主题中任意层次数的通配符。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">订阅了finance/stock/ibm/# 以下主题的消息都可以接收到</span><br><span class="line"></span><br><span class="line">	1、finance/stock/ibm</span><br><span class="line">	2、finance/stock/ibm/closingprice</span><br><span class="line">	3、finance/stock/ibm/currentprice</span><br></pre></td></tr></table></figure>
+
+<p><strong>单层通配符(+)</strong> 只匹配主题的一层</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">订阅了finance/stock/+ 以下主题的消息都可以接收到</span><br><span class="line"></span><br><span class="line">	1、finance/stock/ibm	</span><br><span class="line">	2、finance/stock/xyz</span><br><span class="line"></span><br><span class="line">因为单层通配符只匹配1层 finance/+不匹配</span><br><span class="line">	</span><br><span class="line">	3、finance</span><br><span class="line"></span><br><span class="line">单层通配符可以用在主题树的末端，也可以用在中间。</span><br><span class="line">	</span><br><span class="line">	4、finance/+和finance/+/ibm</span><br></pre></td></tr></table></figure>
+
+<p>参考自：</p>
+<p><a href="https://www.runoob.com/w3cnote/mqtt-intro.html" target="_blank" rel="noopener">https://www.runoob.com/w3cnote/mqtt-intro.html</a></p>
+<p><a href="https://www.cnblogs.com/mao2080/p/7275544.html?utm_source=itdadao&amp;utm_medium=referral" target="_blank" rel="noopener">https://www.cnblogs.com/mao2080/p/7275544.html?utm_source=itdadao&amp;utm_medium=referral</a></p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/springCloud//" class="article-tag-list-link color2">springCloud</a>
+        			<a href="/categories/MQTT//" class="article-tag-list-link color5">MQTT</a>
         		</li>
       		
 		</ul>
 	</div>
 
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://m17775514495.github.io/2020/06/27/MQTT简介/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2020/03/31/算法之堆排序/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">算法之堆排序</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/2019/08/">&laquo; Prev</a><a class="page-number" href="/archives/2019/08/">1</a><span class="page-number current">2</span>
-    </nav>
+  
+
+  
+
   
 
 
@@ -260,8 +364,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
